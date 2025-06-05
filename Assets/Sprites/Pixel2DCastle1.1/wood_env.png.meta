@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 948041f5132b7a348915ad576a19677b
+guid: 9f3cb4cb4b4981d4c8c385e3af35a8ac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,111 +97,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ATTACK 1_0
+      name: wood_env_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 21
-        width: 33
-        height: 37
+        x: 0
+        y: 176
+        width: 192
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0ce1612e858235b70800000000000000
-      internalID: 8886490851947454144
+      spriteID: fbd5c7d83a45daf4f8f3fc0fa7724a32
+      internalID: -1694360663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_1
+      name: wood_env_1
       rect:
         serializedVersion: 2
-        x: 121
-        y: 21
-        width: 51
-        height: 38
+        x: 198
+        y: 192
+        width: 20
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9921c0a1d48e0ea50800000000000000
-      internalID: 6548489276043825817
+      spriteID: f33e9da8a2bafaa4b8143f3310d9e90d
+      internalID: -1029354121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_2
+      name: wood_env_2
       rect:
         serializedVersion: 2
-        x: 216
-        y: 21
-        width: 43
-        height: 38
+        x: 224
+        y: 192
+        width: 10
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6b92e3f7e0039f440800000000000000
-      internalID: 4970056502602508726
+      spriteID: 828ed050a5687e147b91fcad5b0832b4
+      internalID: -1588125236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_3
+      name: wood_env_3
       rect:
         serializedVersion: 2
-        x: 310
-        y: 19
-        width: 45
-        height: 38
+        x: 246
+        y: 192
+        width: 10
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c37b9fb4cb25bda10800000000000000
-      internalID: 1935231433567745852
+      spriteID: 0e535fdcb01a1664083ea362dde2539a
+      internalID: -882803714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_4
+      name: wood_env_4
       rect:
         serializedVersion: 2
-        x: 405
-        y: 21
-        width: 45
-        height: 35
+        x: 272
+        y: 112
+        width: 48
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5a69bbe4b3b544a70800000000000000
-      internalID: 8810267081325647525
+      spriteID: 4798cdd3c2a95c0459f5e360ac9afade
+      internalID: 1389597139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wood_env_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 248
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7696a6741f9971c4e947db9ac7c6e5ac
+      internalID: 2016165328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wood_env_6
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb47853713995a94b805c958a54515eb
+      internalID: 879755399
       vertices: []
       indices: 
       edges: []
@@ -210,7 +254,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3fc1229a7cfa0564cb058afc6705ffe2
+    spriteID: 5cabaa0206ee470418c6131a877c3745
     internalID: 0
     vertices: []
     indices: 
@@ -220,13 +264,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ATTACK 1_0: 8886490851947454144
-      ATTACK 1_1: 6548489276043825817
-      ATTACK 1_2: 4970056502602508726
-      ATTACK 1_3: 1935231433567745852
-      ATTACK 1_4: 8810267081325647525
-      ATTACK 1_5: 4172772526038875549
-      ATTACK 1_6: -9022913262071093832
+      wood_env_0: -1694360663
+      wood_env_1: -1029354121
+      wood_env_2: -1588125236
+      wood_env_3: -882803714
+      wood_env_4: 1389597139
+      wood_env_5: 2016165328
+      wood_env_6: 879755399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

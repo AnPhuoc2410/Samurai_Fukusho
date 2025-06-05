@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: bfbf0fbfb2548e342adce2178533a4c4
+guid: 99d1f6873055c8a4f830b2fc09b41e05
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 3571635775238715396
-    second: HURT_0
-  - first:
-      213: -6552392919759675800
-    second: HURT_1
-  - first:
-      213: -4191814458887339610
-    second: HURT_2
-  - first:
-      213: -5703626821815436037
-    second: HURT_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,89 +97,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HURT_0
+      name: HURT 1_0
       rect:
         serializedVersion: 2
         x: 33
         y: 21
-        width: 26
-        height: 38
+        width: 28
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4083e2270dff09130800000000000000
-      internalID: 3571635775238715396
+      spriteID: 0ce1612e858235b70800000000000000
+      internalID: 8886490851947454144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HURT_1
+      name: HURT 1_1
       rect:
         serializedVersion: 2
-        x: 123
+        x: 121
         y: 21
-        width: 34
+        width: 35
         height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86e90f40b593115a0800000000000000
-      internalID: -6552392919759675800
+      spriteID: 9921c0a1d48e0ea50800000000000000
+      internalID: 6548489276043825817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HURT_2
+      name: HURT 1_2
       rect:
         serializedVersion: 2
-        x: 219
+        x: 216
         y: 21
-        width: 34
-        height: 38
+        width: 37
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a18ca575fea3d5c0800000000000000
-      internalID: -4191814458887339610
+      spriteID: 6b92e3f7e0039f440800000000000000
+      internalID: 4970056502602508726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HURT_3
+      name: HURT 1_3
       rect:
         serializedVersion: 2
-        x: 318
-        y: 21
-        width: 31
-        height: 38
+        x: 311
+        y: 22
+        width: 48
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bfcfc4aef95a8d0b0800000000000000
-      internalID: -5703626821815436037
+      spriteID: c37b9fb4cb25bda10800000000000000
+      internalID: 1935231433567745852
       vertices: []
       indices: 
       edges: []
@@ -200,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 021eb2fc741d5574ea059871a8fd3e45
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +198,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HURT_0: 3571635775238715396
-      HURT_1: -6552392919759675800
-      HURT_2: -4191814458887339610
-      HURT_3: -5703626821815436037
+      ATTACK 1_4: 8810267081325647525
+      ATTACK 1_5: 4172772526038875549
+      ATTACK 1_6: -9022913262071093832
+      HURT 1_0: 8886490851947454144
+      HURT 1_1: 6548489276043825817
+      HURT 1_2: 4970056502602508726
+      HURT 1_3: 1935231433567745852
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
