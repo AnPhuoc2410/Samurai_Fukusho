@@ -102,10 +102,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
+        width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -114,6 +114,72 @@ TextureImporter:
       bones: []
       spriteID: 66886e9148e862943a6e074de7597100
       internalID: -2130975757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim_light2_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c71ecdd93e3bae4d8a6e0da4049bc2b
+      internalID: -965570038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim_light2_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276745b359f7e524d9a569fcde73fced
+      internalID: 1288443547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim_light2_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a1335c6203cc6498e38bab88562d19
+      internalID: 805013003
       vertices: []
       indices: 
       edges: []
@@ -133,6 +199,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       anim_light2_0: -2130975757
+      anim_light2_1: -965570038
+      anim_light2_2: 1288443547
+      anim_light2_3: 805013003
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

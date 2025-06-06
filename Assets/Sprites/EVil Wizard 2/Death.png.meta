@@ -97,155 +97,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ATTACK 1_0
+      name: Death_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 21
-        width: 28
-        height: 37
+        x: 108
+        y: 83
+        width: 45
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0ce1612e858235b70800000000000000
-      internalID: 8886490851947454144
+      spriteID: 4192b3a94ca5350418665739ce50a36d
+      internalID: 1761242145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_1
+      name: Death_7
       rect:
         serializedVersion: 2
-        x: 121
-        y: 21
-        width: 35
-        height: 38
+        x: 858
+        y: 83
+        width: 96
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9921c0a1d48e0ea50800000000000000
-      internalID: 6548489276043825817
+      spriteID: 48588c05723da5d47bfdd85ffe8b28db
+      internalID: 585259439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_2
+      name: Death_8
       rect:
         serializedVersion: 2
-        x: 216
-        y: 21
-        width: 37
-        height: 37
+        x: 1108
+        y: 83
+        width: 105
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6b92e3f7e0039f440800000000000000
-      internalID: 4970056502602508726
+      spriteID: 8bb2923060789c1479f9f7f63a89e3bd
+      internalID: -1683625922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_3
+      name: Death_9
       rect:
         serializedVersion: 2
-        x: 303
-        y: 21
-        width: 56
-        height: 36
+        x: 1358
+        y: 83
+        width: 96
+        height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c37b9fb4cb25bda10800000000000000
-      internalID: 1935231433567745852
+      spriteID: 7bfb2af51946fec43b1157aa13edbb63
+      internalID: 1469079836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_4
+      name: Death_11
       rect:
         serializedVersion: 2
-        x: 410
-        y: 21
-        width: 51
-        height: 34
+        x: 358
+        y: 83
+        width: 52
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5a69bbe4b3b544a70800000000000000
-      internalID: 8810267081325647525
+      spriteID: d2734b19bd356ad48ba3fc2fa4aff746
+      internalID: 787230048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_5
+      name: Death_15
       rect:
         serializedVersion: 2
-        x: 505
-        y: 21
-        width: 46
-        height: 34
+        x: 608
+        y: 83
+        width: 66
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d9d7e0f018aa8e930800000000000000
-      internalID: 4172772526038875549
+      spriteID: e8137306ec23df5439f3f6c28c938d96
+      internalID: -138766137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_6
+      name: Death_18
       rect:
         serializedVersion: 2
-        x: 551
-        y: 32
-        width: 7
-        height: 10
+        x: 1608
+        y: 83
+        width: 105
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8b5671f813c28c280800000000000000
-      internalID: -9022913262071093832
+      spriteID: 2a0fe2b620d24f54ebc5c584f36166d3
+      internalID: -561569775
       vertices: []
       indices: 
       edges: []
@@ -254,7 +254,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7f312d6b938a1e64393cd4d969d78dfe
     internalID: 0
     vertices: []
     indices: 
@@ -264,13 +264,25 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ATTACK 1_0: 8886490851947454144
-      ATTACK 1_1: 6548489276043825817
-      ATTACK 1_2: 4970056502602508726
-      ATTACK 1_3: 1935231433567745852
-      ATTACK 1_4: 8810267081325647525
-      ATTACK 1_5: 4172772526038875549
-      ATTACK 1_6: -9022913262071093832
+      Death_0: 1761242145
+      Death_1: -1996136520
+      Death_10: -1546281525
+      Death_11: 787230048
+      Death_12: -696970460
+      Death_13: 1637046181
+      Death_14: 1225732286
+      Death_15: -138766137
+      Death_16: -1365101910
+      Death_17: -1469260485
+      Death_18: -561569775
+      Death_2: 1751113983
+      Death_3: -896221356
+      Death_4: -678685384
+      Death_5: -84845405
+      Death_6: -1749305868
+      Death_7: 585259439
+      Death_8: -1683625922
+      Death_9: 1469079836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -100,12 +100,12 @@ TextureImporter:
       name: anim_light1_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 14
         y: 0
-        width: 16
+        width: 20
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -122,12 +122,12 @@ TextureImporter:
       name: anim_light1_1
       rect:
         serializedVersion: 2
-        x: 63
+        x: 62
         y: 0
-        width: 16
+        width: 20
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -146,10 +146,10 @@ TextureImporter:
         serializedVersion: 2
         x: 110
         y: 0
-        width: 16
+        width: 20
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: anim_light1_3
       rect:
         serializedVersion: 2
-        x: 160
+        x: 158
         y: 0
-        width: 16
+        width: 20
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,12 +188,12 @@ TextureImporter:
       name: anim_light1_4
       rect:
         serializedVersion: 2
-        x: 209
+        x: 206
         y: 0
-        width: 16
+        width: 20
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: anim_light1_5
       rect:
         serializedVersion: 2
-        x: 258
+        x: 206
         y: 0
-        width: 16
+        width: 20
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -224,6 +224,28 @@ TextureImporter:
       bones: []
       spriteID: 8cf724e5b73f6414a941e2e7d0336fb3
       internalID: -1806688060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim_light1_6
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 0
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5d813d76f876940b0e80274c90e2be
+      internalID: -94214430
       vertices: []
       indices: 
       edges: []
@@ -248,6 +270,7 @@ TextureImporter:
       anim_light1_3: 2012140176
       anim_light1_4: -1064903589
       anim_light1_5: -1806688060
+      anim_light1_6: -94214430
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

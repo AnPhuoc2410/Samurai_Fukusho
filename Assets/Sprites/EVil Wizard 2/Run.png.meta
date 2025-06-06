@@ -97,155 +97,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ATTACK 1_0
+      name: Run_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 21
-        width: 28
-        height: 37
+        x: 839
+        y: 83
+        width: 70
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0ce1612e858235b70800000000000000
-      internalID: 8886490851947454144
+      spriteID: f6883b1666063a744948f3d38bd2a4f5
+      internalID: -1240523863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_1
+      name: Run_5
       rect:
         serializedVersion: 2
-        x: 121
-        y: 21
-        width: 35
-        height: 38
+        x: 1092
+        y: 83
+        width: 67
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9921c0a1d48e0ea50800000000000000
-      internalID: 6548489276043825817
+      spriteID: 58ad25a0f2430e546b06ae90b33e85c6
+      internalID: 1487930523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_2
+      name: Run_7
       rect:
         serializedVersion: 2
-        x: 216
-        y: 21
-        width: 37
-        height: 37
+        x: 1594
+        y: 83
+        width: 65
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6b92e3f7e0039f440800000000000000
-      internalID: 4970056502602508726
+      spriteID: 9feab17cdfa33a841a1b1726bbaf1ae0
+      internalID: -1804053058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_3
+      name: Run_9
       rect:
         serializedVersion: 2
-        x: 303
-        y: 21
-        width: 56
-        height: 36
+        x: 94
+        y: 83
+        width: 65
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c37b9fb4cb25bda10800000000000000
-      internalID: 1935231433567745852
+      spriteID: 5a3a709af56247d419846b66da66b22d
+      internalID: -1270960666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_4
+      name: Run_11
       rect:
         serializedVersion: 2
-        x: 410
-        y: 21
-        width: 51
-        height: 34
+        x: 592
+        y: 83
+        width: 67
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5a69bbe4b3b544a70800000000000000
-      internalID: 8810267081325647525
+      spriteID: 7051e10ac5aec7e4a9a5c1059bd8cfad
+      internalID: -1472863500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_5
+      name: Run_12
       rect:
         serializedVersion: 2
-        x: 505
-        y: 21
-        width: 46
-        height: 34
+        x: 1342
+        y: 83
+        width: 67
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d9d7e0f018aa8e930800000000000000
-      internalID: 4172772526038875549
+      spriteID: d7b41e759e3be774f9443ace28595277
+      internalID: 400741921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATTACK 1_6
+      name: Run_13
       rect:
         serializedVersion: 2
-        x: 551
-        y: 32
-        width: 7
-        height: 10
+        x: 1846
+        y: 86
+        width: 63
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8b5671f813c28c280800000000000000
-      internalID: -9022913262071093832
+      spriteID: bc6919888ff8cfc42a5b4ca7b6bb24db
+      internalID: -1361780418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_14
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 83
+        width: 67
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e21672f1c017a4fbd96e5e28e412e4
+      internalID: 1010870985
       vertices: []
       indices: 
       edges: []
@@ -254,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8e2bc5119b299c240b6df4b9011eaee5
     internalID: 0
     vertices: []
     indices: 
@@ -264,13 +286,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ATTACK 1_0: 8886490851947454144
-      ATTACK 1_1: 6548489276043825817
-      ATTACK 1_2: 4970056502602508726
-      ATTACK 1_3: 1935231433567745852
-      ATTACK 1_4: 8810267081325647525
-      ATTACK 1_5: 4172772526038875549
-      ATTACK 1_6: -9022913262071093832
+      Run_0: 99687943
+      Run_1: 1948102210
+      Run_10: -678118867
+      Run_11: -1472863500
+      Run_12: 400741921
+      Run_13: -1361780418
+      Run_14: 1010870985
+      Run_2: -293032643
+      Run_3: -1461025809
+      Run_4: -1240523863
+      Run_5: 1487930523
+      Run_6: -1142243705
+      Run_7: -1804053058
+      Run_8: -1395381356
+      Run_9: -1270960666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
