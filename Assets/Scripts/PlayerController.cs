@@ -1,46 +1,97 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(TouchingDirection))]
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
-    private Vector2 _movementInput;
-    public float moveSpeed = 5f;
-    public bool IsMoving { get; private set; }
+    private Rigidbody2D rb;
+    private Animator animator;
 
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float runSpeed = 8f;
+    [SerializeField] private float airWalkSpeed = 3f;
+    TouchingDirection touchingDirection;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    private Vector2 moveInput;
+    private bool isFacingRight = true;
+    private bool isMoving = false;
+    private bool isRunning = false;
+
+    private float MoveSpeed
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        get
+        {
+            if (isMoving && !touchingDirection.IsOnWall)
+            {
+                if (!touchingDirection.IsGrounded)
+                {
+                    return airWalkSpeed; // Air movement speed
+                }
+                if (isRunning)
+                {
+                    return runSpeed;
+                }
+                else
+                {
+                    return walkSpeed;
+                }
+            }
+            else
+            {
+                return 0f; //Idle
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        // Optional: Handle any non-physics-based logic here
+        if (!rb) rb = GetComponent<Rigidbody2D>();
+        if (!animator) animator = GetComponent<Animator>();
+        touchingDirection = GetComponent<TouchingDirection>();
     }
 
-    // FixedUpdate is called at a fixed interval and is used for physics calculations
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        _rigidbody.linearVelocity = new Vector2(_movementInput.x * moveSpeed, _movementInput.y * moveSpeed);
+        rb.linearVelocity = new Vector2(moveInput.x * MoveSpeed, rb.linearVelocity.y);
+        animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _movementInput = context.ReadValue<Vector2>();
+        moveInput = context.ReadValue<Vector2>();
+        isMoving = moveInput != Vector2.zero;
+        animator.SetBool(AnimationStrings.isMoving, isMoving);
 
-        IsMoving = _movementInput != Vector2.zero;
+        if (moveInput.x != 0)
+        {
+            SetFacingDirection(moveInput.x);
+        }
+    }
+
+    private void SetFacingDirection(float directionX)
+    {
+        bool shouldFaceRight = directionX > 0;
+        if (isFacingRight != shouldFaceRight)
+        {
+            isFacingRight = shouldFaceRight;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        isRunning = context.performed;
+        animator.SetBool(AnimationStrings.isRunning, isRunning);
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started && touchingDirection.IsGrounded)
         {
-            // Implement jump logic here
-            Debug.Log("Jump action performed");
+            animator.SetTrigger(AnimationStrings.Jumping);
+            rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
         }
     }
 
@@ -48,7 +99,6 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            // Implement firing logic here
             Debug.Log("Fire action performed");
         }
     }
