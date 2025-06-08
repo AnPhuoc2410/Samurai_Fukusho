@@ -1,23 +1,33 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(TouchingDirection))]
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public Animator animator;
+    private Animator animator;
+
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float runSpeed = 8f;
+    [SerializeField] private float airWalkSpeed = 3f;
+    TouchingDirection touchingDirection;
+
     private Vector2 moveInput;
+    private bool isFacingRight = true;
+    private bool isMoving = false;
+    private bool isRunning = false;
 
-    public float walkSpeed = 5f;
-    public float runSpeed = 8f;
-
-    public float MoveSpeed
+    private float MoveSpeed
     {
         get
         {
-            if (IsMoving)
+            if (isMoving && !touchingDirection.IsOnWall)
             {
-                if (IsRunning)
+                if (!touchingDirection.IsGrounded)
+                {
+                    return airWalkSpeed; // Air movement speed
+                }
+                if (isRunning)
                 {
                     return runSpeed;
                 }
@@ -28,104 +38,60 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //Idle
-                return 0f;
+                return 0f; //Idle
             }
         }
     }
 
-    public bool _isFacingRight = true;
-
-    public bool IsFacingRight
+    private void Awake()
     {
-        get { return _isFacingRight; }
-        private set
-        {
-            if (_isFacingRight != value)
-            {
-                transform.localScale *= new Vector2(-1, 1);
-            }
-
-            _isFacingRight = value;
-        }
+        if (!rb) rb = GetComponent<Rigidbody2D>();
+        if (!animator) animator = GetComponent<Animator>();
+        touchingDirection = GetComponent<TouchingDirection>();
     }
 
-    [SerializeField] private bool _isMoving = false;
-
-    public bool IsMoving
-    {
-        get { return _isMoving; }
-        private set
-        {
-            _isMoving = value;
-            animator.SetBool("isMoving", value);
-        }
-    }
-
-    [SerializeField] private bool _isRunnning = false;
-
-    public bool IsRunning
-    {
-        get { return _isRunnning; }
-        private set
-        {
-            _isRunnning = value;
-            animator.SetBool("isRunning", value);
-        }
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-    }
-
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(moveInput.x * MoveSpeed, rb.linearVelocity.y);
+        animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        isMoving = moveInput != Vector2.zero;
+        animator.SetBool(AnimationStrings.isMoving, isMoving);
 
-        IsMoving = moveInput != Vector2.zero;
-
-        SetFacingDirection(moveInput);
+        if (moveInput.x != 0)
+        {
+            SetFacingDirection(moveInput.x);
+        }
     }
 
-    private void SetFacingDirection(Vector2 direction)
+    private void SetFacingDirection(float directionX)
     {
-        if (direction.x > 0 && !IsFacingRight)
+        bool shouldFaceRight = directionX > 0;
+        if (isFacingRight != shouldFaceRight)
         {
-            IsFacingRight = true;
-        }
-        else if (direction.x < 0 && IsFacingRight)
-        {
-            IsFacingRight = false;
+            isFacingRight = shouldFaceRight;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
         }
     }
-
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            IsRunning = true;
-        }
-        else if (context.canceled)
-        {
-            IsRunning = false;
-        }
+        isRunning = context.performed;
+        animator.SetBool(AnimationStrings.isRunning, isRunning);
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started && touchingDirection.IsGrounded)
         {
-            // Implement jump logic here
-            Debug.Log("Jump action performed");
+            animator.SetTrigger(AnimationStrings.Jumping);
+            rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
         }
     }
 
@@ -133,7 +99,6 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            // Implement firing logic here
             Debug.Log("Fire action performed");
         }
     }

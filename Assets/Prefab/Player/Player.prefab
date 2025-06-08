@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6777711302274061910}
   - component: {fileID: 4518609225088637462}
   - component: {fileID: 7196154010663434676}
+  - component: {fileID: 6791342348648284467}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -168,10 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ca8699313ac5a47a3f7a6afa8a7e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  moveSpeed: 5
-  _isMoving: 0
-  _isRunnning: 0
+  walkSpeed: 5
+  runSpeed: 8
 --- !u!114 &4518609225088637462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +229,19 @@ MonoBehaviour:
     m_ActionId: 27c5f898-bc57-4ee1-8800-db469aca5fe3
     m_ActionName: 'Player/Crouch[/Keyboard/c]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6777711302274061910}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f1ba0d36-48eb-4cd5-b651-1c94a6531f70
     m_ActionName: 'Player/Jump[/Keyboard/space]'
   - m_PersistentCalls:
@@ -324,3 +335,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6791342348648284467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672597975836069524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc26ed28558dd3a41b8f0e44604e848b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  groundDistance: 0.05
+  _isGrounded: 0
