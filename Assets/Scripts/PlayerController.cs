@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float airWalkSpeed = 3f;
+    [SerializeField] private float jumpForce = 7f;
     TouchingDirection touchingDirection;
 
     private Vector2 moveInput;
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             isFacingRight = shouldFaceRight;
             Vector3 scale = transform.localScale;
-            scale.x *= -1;
+            scale.x = Mathf.Abs(scale.x) * (shouldFaceRight ? 1 : -1);
             transform.localScale = scale;
         }
     }
@@ -97,10 +98,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirection.IsGrounded && CanMove )
+        if (context.started && touchingDirection.IsGrounded && CanMove)
         {
             animator.SetTrigger(AnimationStrings.jumpTrigger);
-            rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
 
