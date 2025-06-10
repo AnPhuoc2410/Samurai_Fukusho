@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
+    public bool CanMove => animator.GetBool(AnimationStrings.canMove);
 
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 8f;
@@ -21,24 +22,32 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            if (isMoving && !touchingDirection.IsOnWall)
+            if (CanMove)
             {
-                if (!touchingDirection.IsGrounded)
+                if (isMoving && !touchingDirection.IsOnWall)
                 {
-                    return airWalkSpeed; // Air movement speed
-                }
-                if (isRunning)
-                {
-                    return runSpeed;
+                    if (!touchingDirection.IsGrounded)
+                    {
+                        return airWalkSpeed; // Air movement speed
+                    }
+
+                    if (isRunning)
+                    {
+                        return runSpeed;
+                    }
+                    else
+                    {
+                        return walkSpeed;
+                    }
                 }
                 else
                 {
-                    return walkSpeed;
+                    return 0f; //Idle
                 }
             }
             else
             {
-                return 0f; //Idle
+                return 0f; // Cannot move
             }
         }
     }
@@ -88,9 +97,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirection.IsGrounded)
+        if (context.started && touchingDirection.IsGrounded && CanMove )
         {
-            animator.SetTrigger(AnimationStrings.Jumping);
+            animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
         }
     }
@@ -99,7 +108,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("Fire action performed");
+            animator.SetTrigger(AnimationStrings.attackTrigger);
         }
     }
 }

@@ -6,7 +6,8 @@ public class AnimationStrings
     public static string isOnCelling = "isOnCelling";
     public static string isOnWall = "isOnWall";
     public static string yVelocity = "yVelocity";
-    public static string Jumping = "jumping";
-    public static string isAttacking = "isAttacking";
+    public static string jumpTrigger = "jumping";
+    public static string attackTrigger = "attack";
+    public static string canMove = "canMove";
     public static string isDying = "isDying";
 }
