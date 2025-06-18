@@ -1,62 +1,84 @@
-# Knight Fukusho
+![Knight Fukusho Banner](Docs/KnightFukusho.png)
 
-A 2D action-packed dungeon crawler game built in Unity where players take on the role of a betrayed knight seeking freedom and revenge.
+> *"The chains that bound me have become the weapons of my vengeance..."*
 
-## Game Overview
+A 2D action-packed dungeon crawler game built in Unity where players take on the role of a betrayed knight seeking freedom, revenge, and the truth behind their imprisonment.
 
-**Knight Fukusho** follows the journey of a knight who was betrayed and imprisoned in a dark dungeon. Driven by hatred and the longing for freedom, he breaks his chains, battles the monstrous creatures guarding his prison, and gradually uncovers the secrets of the one who locked him away. Players will experience thrilling adventures through eerie dungeons, face formidable beasts, and inch closer to escape—but is this truly just an ordinary prison break?
+## 🧱 Game Overview
 
-## How to Play
+**Knight Fukusho** follows the dark journey of a once-noble knight who was betrayed by those he trusted and imprisoned in the depths of a forgotten dungeon. As torches flicker against damp stone walls and the distant screams of other prisoners fade into silence, our hero's resolve only strengthens.
 
-### Controls
-- **W, A, S, D**: Move
-- **J**: Attack
-- **K**: Block
-- **Space**: Jump
-- **E**: Interact with items or doors
+Driven by burning hatred and an unwavering desire for freedom, he finally breaks his chains after years of confinement. Now, with nothing but his skill and fury, he battles the twisted creatures and corrupted guards that haunt the labyrinthine halls of his living nightmare.
 
-### Gameplay Mechanics
-- Fight waves of monsters in the dungeon
-- Complete levels by defeating enemies and collecting coins
-- Uncover more of the truth behind the betrayal as you clear zones
+With each enemy slain and each new area discovered, fragments of the truth begin to surface. Who orchestrated this betrayal? What dark purpose does this dungeon truly serve? And is what waits beyond these walls truly freedom—or something far more sinister?
 
-### Objective
-- Defeat the final boss to win the game
+## 🎮 How to Play
 
-## Game Features
+### 🎛️ Controls
 
-- 2D platforming movement
-- Melee combat system with attack, block, and combo mechanics
-- Dynamic zone-based level progression
-- Health and stamina systems
-- Item interaction
-- Pixel art/hand-drawn style with dynamic lighting
-- Ambient dungeon music and sound effects for combat
+* **W, A, S, D**: Move through shadow-filled corridors and chambers
+* **J**: Strike with fury and precision
+* **K**: Raise your guard against the onslaught of enemies
+* **Space**: Leap across chasms and deadly traps
+* **E**: Interact with ancient mechanisms, mysterious artifacts, and sealed doors
 
-## Development
+### ⚙️ Gameplay Mechanics
 
-### Built With
-- Unity Editor (Version 6000.0.48f1)
-- Universal Render Pipeline (URP) for 2D lighting effects
+* Battle relentless waves of nightmarish creatures that guard the secrets of the dungeon
+* Execute devastating combo attacks that grow more powerful as you progress
+* Discover hidden chambers containing fragments of your forgotten past
+* Collect ancient coins to upgrade your abilities and uncover powerful relics
+* With each zone cleared, peel back another layer of the conspiracy that led to your imprisonment
 
-### Design
-- Figma mockups available at: https://www.figma.com/design/kl7oK5Bxj89kElVSD4lONK/Untitled?node-id=0-1&t=65UNoHUzKm015UCi-1
+### 🎯 Objective
 
-### Platforms
-- PC (Windows)
-- Keyboard controls
+* Carve your path through increasingly treacherous levels
+* Master the art of combat against uniquely horrifying enemies
+* Confront and defeat the mastermind behind your betrayal in an epic final confrontation
 
-## Team
+## 🌟 Game Features
+
+* **Fluid Combat System**: Chain devastating attacks, time your blocks perfectly, and unleash special moves as your rage meter builds
+* **Atmospheric World**: Navigate through meticulously crafted dungeons where each zone has its own distinct atmosphere, from damp prison cells to forgotten crypts and corrupted sanctuaries
+* **Evolving Narrative**: Piece together the fragments of your past through environmental storytelling, cryptic inscriptions, and the dying words of your enemies
+* **Progression System**: Transform from a weakened prisoner to a formidable warrior by discovering ancient techniques and forbidden knowledge
+* **Challenging Foes**: Face increasingly difficult enemies with unique attack patterns, from shambling undead prisoners to elite guards and monstrous abominations
+* **Moody Aesthetics**: Immerse yourself in the dark fantasy world through hauntingly beautiful pixel art enhanced by dynamic lighting that casts long shadows across blood-stained floors
+* **Atmospheric Soundscape**: Experience the tension through an original soundtrack that evolves with your journey, punctuated by the satisfying clash of steel and the death rattles of your foes
+
+## 🛠️ Development
+
+### 🧰 Built With
+
+* Unity Editor (Version 6000.0.48f1)
+* Universal Render Pipeline (URP) for 2D lighting effects
+
+### 🎨 Design
+
+* Figma mockups available at: [https://www.figma.com/design/kl7oK5Bxj89kElVSD4lONK/Untitled?node-id=0-1\&t=65UNoHUzKm015UCi-1](https://www.figma.com/design/kl7oK5Bxj89kElVSD4lONK/Untitled?node-id=0-1&t=65UNoHUzKm015UCi-1)
+
+### 💻 Platforms
+
+* PC (Windows)
+* Keyboard controls
+
+## 👥 Team
 
 This project was developed by:
+
 1. Đào Công An Phước
 2. Nguyễn Văn Duy Khiêm
 3. Nguyễn Mạnh Dưỡng
 4. Nguyễn Hoàng Mai Anh
 
-## License
+## 📄 License
 
 See the [LICENSE](LICENSE) file for details.
 
-## Acknowledgements
-- Assets from Unity Asset Store:
+## 🙏 Acknowledgements
+* Special thanks to our playtesters who braved the early versions of the dungeon
+* Inspired by classic dungeon crawlers and modern action platformers that value skill and exploration
+
+---
+
+*"The darkness holds many secrets... but I hold the key to them all."*
