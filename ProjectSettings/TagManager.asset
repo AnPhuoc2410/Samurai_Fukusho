@@ -11,6 +11,11 @@ TagManager:
   - Tilemap
   - Water
   - UI
+  - Ground
+  - Player
+  - Enemy
+  - PLayerHitbox
+  - EnemyHitbox
   - Background
   - 
   - 
