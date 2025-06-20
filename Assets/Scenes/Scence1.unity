@@ -206,6 +206,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &213619072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 672597975836069524, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
+  m_PrefabInstance: {fileID: 1166748406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &259172382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7797637335284552775, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
@@ -221,6 +226,20 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5003644442495383385, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
   m_PrefabInstance: {fileID: 1166748406}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &259172390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213619072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6964c86ab76ed4b4abd23b83334b589f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPoint: {fileID: 680376959}
+  gameGroundLayer: 6
 --- !u!1 &342725285
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +251,7 @@ GameObject:
   - component: {fileID: 342725287}
   - component: {fileID: 342725286}
   m_Layer: 6
-  m_Name: GameBorder_Left
+  m_Name: WorldBorder_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,7 +740,7 @@ Transform:
   m_GameObject: {fileID: 643861412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.54, y: -3.3, z: -10.116145}
+  m_LocalPosition: {x: -30.03, y: -3.3, z: -10.116145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -937,6 +956,37 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &680376958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 680376959}
+  m_Layer: 0
+  m_Name: StartingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &680376959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680376958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.63236, y: -1.3147445, z: -0.18184957}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &788632204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1362,7 @@ Transform:
   m_GameObject: {fileID: 967991658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.54, y: -3.3, z: -10.116145}
+  m_LocalPosition: {x: -30.03, y: -3.3, z: -10.116145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6670,7 +6720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7797637335284552775, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.54
+      value: -30.03
       objectReference: {fileID: 0}
     - target: {fileID: 7797637335284552775, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6715,7 +6765,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 672597975836069524, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 259172390}
   m_SourcePrefab: {fileID: 100100000, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
 --- !u!1 &1172193136
 GameObject:
@@ -7693,7 +7746,7 @@ GameObject:
   - component: {fileID: 1661488071}
   - component: {fileID: 1661488070}
   m_Layer: 6
-  m_Name: GameBorder_Bottom
+  m_Name: WorldBorder_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7866,7 +7919,7 @@ GameObject:
   - component: {fileID: 1876045893}
   - component: {fileID: 1876045892}
   m_Layer: 6
-  m_Name: GameBorder_Right
+  m_Name: WorldBorder_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8033,3 +8086,4 @@ SceneRoots:
   - {fileID: 1661488071}
   - {fileID: 342725287}
   - {fileID: 1876045893}
+  - {fileID: 680376959}
