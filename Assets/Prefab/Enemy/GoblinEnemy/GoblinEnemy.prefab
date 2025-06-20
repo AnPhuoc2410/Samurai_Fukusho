@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4097542442077595499}
   - component: {fileID: 7699009567177666704}
   - component: {fileID: 3789444211338122493}
+  - component: {fileID: 8937846913024906913}
   - component: {fileID: 5469952182505619895}
   m_Layer: 8
   m_Name: GoblinEnemy
@@ -204,6 +205,19 @@ MonoBehaviour:
   _isGrounded: 0
   _isOnWall: 0
   _isOnCelling: 0
+--- !u!114 &8937846913024906913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707031078386687130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd1ec608a4139f409b74b6fb113f966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!95 &5469952182505619895
 Animator:
   serializedVersion: 7
