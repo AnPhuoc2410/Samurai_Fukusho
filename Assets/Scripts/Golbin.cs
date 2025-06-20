@@ -7,8 +7,10 @@ public class Golbin : MonoBehaviour
 {
     public float speed = 2f;
     Rigidbody2D rb;
+    public DetectionZone attackZone;
     private Vector2 walkVector = Vector2.right;
     TouchingDirection touchingDirection;
+    Animator animator;
 
     private WalkDirection _walkDirection = WalkDirection.Left;
 
@@ -31,16 +33,37 @@ public class Golbin : MonoBehaviour
             _walkDirection = value;
         }
     }
+    private bool _hasTarget = false;
+
+    public bool HasTarget
+    {
+        get
+        {
+            return _hasTarget;
+        }
+        private set
+        {
+            _hasTarget = value;
+            animator.SetBool(AnimationStrings.hasTarget, value);
+        }
+    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         touchingDirection = GetComponent<TouchingDirection>();
         walkDirection = _walkDirection;
+        animator = GetComponent<Animator>();
     }
+
+    private void Update()
+    {
+        HasTarget = attackZone.detectedColliders.Count > 0;
+    }
+
     void FixedUpdate()
     {
-        if(touchingDirection.IsGrounded && touchingDirection.IsOnWall)
+        if (touchingDirection.IsGrounded && touchingDirection.IsOnWall)
         {
             // Change direction when hitting a wall
             walkDirection = walkDirection == WalkDirection.Right ? WalkDirection.Left : WalkDirection.Right;
