@@ -6,9 +6,8 @@ public class WorldBorderRespawn : MonoBehaviour
     [Tooltip("Assign the starting point Transform here.")]
     public Transform startingPoint;
 
-    // Set this to the layer number of 'GameGround' in the Inspector or via code
     [Tooltip("Layer to detect as GameGround (set to match GameGround layer number)")]
-    public int gameGroundLayer = 6; // Change 8 to your actual GameGround layer number
+    public int gameGroundLayer = 6; // Change to your actual GameGround layer number
 
     private void Awake()
     {
@@ -16,27 +15,9 @@ public class WorldBorderRespawn : MonoBehaviour
     }
 
     private void Start()
-    {
-        if (startingPoint != null)
-        {
-        }
-        
+    {     
         bool hasRigidbody2D = GetComponent<Rigidbody2D>() != null;
-        bool hasCollider2D = GetComponent<Collider2D>() != null;
-        
-        
-        if (!hasRigidbody2D)
-        {
-        }
-        
-        if (!hasCollider2D)
-        {
-        }
-        
-        Collider2D col2D = GetComponent<Collider2D>();
-        if (col2D != null)
-        {
-        }        
+        bool hasCollider2D = GetComponent<Collider2D>() != null;       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -51,18 +32,9 @@ public class WorldBorderRespawn : MonoBehaviour
 
     private void HandleRespawn(GameObject hitObject)
     {        
-        if (hitObject.layer == gameGroundLayer)
+        if (hitObject.layer == gameGroundLayer && startingPoint != null)
         {
-            if (startingPoint != null)
-            {
-                StartCoroutine(TeleportNextFrame());
-            }
-            else
-            {
-            }
-        }
-        else
-        {
+            StartCoroutine(TeleportNextFrame());
         }
     }
 
