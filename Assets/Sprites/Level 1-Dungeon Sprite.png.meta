@@ -630,7 +630,7 @@ TextureImporter:
         serializedVersion: 2
         x: 16
         y: 48
-        width: 95
+        width: 31
         height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2384,6 +2384,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Level 1-Dungeon Sprite_76
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 31
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05960c734ee5cd4fbeae5a83f5e22cf
+      internalID: 1867073167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level 1-Dungeon Sprite_77
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 31
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13676d46d7db9a445b063e3b0d8ab315
+      internalID: -105071391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2508,6 +2552,8 @@ TextureImporter:
       Level 1-Dungeon Sprite_73: 175562390
       Level 1-Dungeon Sprite_74: 1210322465
       Level 1-Dungeon Sprite_75: 773808059
+      Level 1-Dungeon Sprite_76: 1867073167
+      Level 1-Dungeon Sprite_77: -105071391
       Level 1-Dungeon Sprite_8: 105045296
       Level 1-Dungeon Sprite_9: 1084085564
   mipmapLimitGroupName: 
