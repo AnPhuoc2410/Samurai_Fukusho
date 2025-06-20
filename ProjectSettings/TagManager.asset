@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Background
+  - Tilemap
   - Water
   - UI
   - Ground
@@ -16,6 +16,11 @@ TagManager:
   - Enemy
   - PLayerHitbox
   - EnemyHitbox
+  - Background
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,6 +45,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 533269817
+    locked: 0
+  - name: Tilemap
+    uniqueID: 1032270153
     locked: 0
   m_RenderingLayers:
   - Default
