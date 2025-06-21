@@ -8,15 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Tilemap
+  - Background
   - Water
   - UI
-  - Ground
-  - Player
-  - Enemy
-  - PLayerHitbox
-  - EnemyHitbox
-  - Background
+  - GameGround
   - 
   - 
   - 
@@ -45,12 +40,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 533269817
-    locked: 0
-  - name: Tilemap
-    uniqueID: 1032270153
     locked: 0
   m_RenderingLayers:
   - Default
