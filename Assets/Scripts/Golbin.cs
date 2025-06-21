@@ -5,9 +5,11 @@ public enum WalkDirection { Left, Right }
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection))]
 public class Golbin : MonoBehaviour
 {
-    public float speed = 2f;
+    public float speed = 3f;
+    public float walkStopRate = 0.1f;
     Rigidbody2D rb;
     public DetectionZone attackZone;
+
     private Vector2 walkVector = Vector2.right;
     TouchingDirection touchingDirection;
     Animator animator;
@@ -47,6 +49,10 @@ public class Golbin : MonoBehaviour
             animator.SetBool(AnimationStrings.hasTarget, value);
         }
     }
+    public bool CanMove
+    {
+        get { return animator.GetBool(AnimationStrings.canMove); }
+    }
 
     private void Awake()
     {
@@ -68,10 +74,17 @@ public class Golbin : MonoBehaviour
             // Change direction when hitting a wall
             walkDirection = walkDirection == WalkDirection.Right ? WalkDirection.Left : WalkDirection.Right;
         }
-
-        if (rb != null)
+        if (CanMove)
         {
-            rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
+            if (rb != null)
+            {
+                rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
+            }
         }
+        else
+        {
+            rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x,0,walkStopRate), rb.linearVelocity.y);
+        }
+
     }
 }
