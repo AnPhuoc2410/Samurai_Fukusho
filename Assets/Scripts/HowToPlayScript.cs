@@ -7,4 +7,5 @@ public class HowToPlayScript : MonoBehaviour
     {
         SceneManager.LoadScene("HowToPlay"); 
     }
+    
 }
