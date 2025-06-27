@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 187373879}
   - component: {fileID: 187373880}
+  - component: {fileID: 187373881}
   m_Layer: 0
   m_Name: 4_0
   m_TagString: Untagged
@@ -145,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 187373878}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.24, z: 0}
+  m_LocalPosition: {x: 2, y: -0.24, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -206,6 +207,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &187373881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187373878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c95740ed28e54a979968480b47847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 643861416}
+  followTarget: {fileID: 259172382}
 --- !u!1 &213619072 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 672597975836069524, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
@@ -238,8 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6964c86ab76ed4b4abd23b83334b589f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPoint: {fileID: 680376959}
-  gameGroundLayer: 6
 --- !u!1 &342725285
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442791529}
   - component: {fileID: 442791530}
+  - component: {fileID: 442791531}
   m_Layer: 0
   m_Name: 3_0
   m_TagString: Untagged
@@ -344,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 442791528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.24, z: 0}
+  m_LocalPosition: {x: 2, y: -0.24, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -405,6 +419,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &442791531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442791528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c95740ed28e54a979968480b47847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 643861416}
+  followTarget: {fileID: 259172382}
 --- !u!1 &484265813
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 484265814}
   - component: {fileID: 484265815}
+  - component: {fileID: 484265816}
   m_Layer: 0
   m_Name: 2_0
   m_TagString: Untagged
@@ -431,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 484265813}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.24, z: 0}
+  m_LocalPosition: {x: 2, y: -0.24, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -492,6 +521,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &484265816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484265813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c95740ed28e54a979968480b47847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 643861416}
+  followTarget: {fileID: 259172382}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +1040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 856648100}
   - component: {fileID: 856648101}
+  - component: {fileID: 856648102}
   m_Layer: 0
   m_Name: 5_0
   m_TagString: Untagged
@@ -1013,7 +1057,7 @@ Transform:
   m_GameObject: {fileID: 856648099}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.24, z: 0}
+  m_LocalPosition: {x: 2, y: -0.24, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1074,6 +1118,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &856648102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856648099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c95740ed28e54a979968480b47847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 643861416}
+  followTarget: {fileID: 259172382}
 --- !u!1 &951063949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951063950}
   - component: {fileID: 951063951}
+  - component: {fileID: 951063952}
   m_Layer: 0
   m_Name: 1_1
   m_TagString: Untagged
@@ -1100,7 +1159,7 @@ Transform:
   m_GameObject: {fileID: 951063949}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.24, z: 0}
+  m_LocalPosition: {x: 2, y: -0.24, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1161,6 +1220,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &951063952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951063949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c95740ed28e54a979968480b47847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 643861416}
+  followTarget: {fileID: 259172382}
 --- !u!1 &967991658
 GameObject:
   m_ObjectHideFlags: 0
@@ -8923,6 +8996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1172193137}
   - component: {fileID: 1172193138}
+  - component: {fileID: 1172193139}
   m_Layer: 0
   m_Name: 6_0
   m_TagString: Untagged
@@ -8939,7 +9013,7 @@ Transform:
   m_GameObject: {fileID: 1172193136}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.24, z: 0}
+  m_LocalPosition: {x: 2, y: -0.24, z: -1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9000,6 +9074,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1172193139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172193136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c95740ed28e54a979968480b47847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 643861416}
+  followTarget: {fileID: 259172382}
 --- !u!1001 &1221576615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10200,6 +10288,7 @@ GameObject:
   - component: {fileID: 2083571350}
   - component: {fileID: 2083571351}
   - component: {fileID: 2083571352}
+  - component: {fileID: 2083571353}
   m_Layer: 0
   m_Name: 7_0
   m_TagString: Untagged
@@ -10216,7 +10305,7 @@ Transform:
   m_GameObject: {fileID: 2083571349}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -0.24, z: 0}
+  m_LocalPosition: {x: 2, y: -0.24, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10278,6 +10367,20 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2083571352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083571349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c95740ed28e54a979968480b47847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 643861416}
+  followTarget: {fileID: 259172382}
+--- !u!114 &2083571353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
