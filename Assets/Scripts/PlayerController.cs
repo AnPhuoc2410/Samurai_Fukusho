@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
-    public bool CanMove => animator.GetBool(AnimationStrings.canMove);
+    private CapsuleCollider2D cc;
 
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 8f;
@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private bool isMoving = false;
     private bool isRunning = false;
 
+    public bool CanMove => animator.GetBool(AnimationStrings.canMove);
+    public bool IsAlive => animator.GetBool(AnimationStrings.isAlive);
     private float MoveSpeed
     {
         get
@@ -55,8 +57,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (!rb) rb = GetComponent<Rigidbody2D>();
-        if (!animator) animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        cc = GetComponent<CapsuleCollider2D>();
+        animator = GetComponent<Animator>();
         touchingDirection = GetComponent<TouchingDirection>();
     }
 
@@ -69,12 +72,21 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        isMoving = moveInput != Vector2.zero;
-        animator.SetBool(AnimationStrings.isMoving, isMoving);
-
-        if (moveInput.x != 0)
+        if (IsAlive)
         {
-            SetFacingDirection(moveInput.x);
+            isMoving = moveInput != Vector2.zero;
+            if (moveInput.x != 0)
+            {
+                SetFacingDirection(moveInput.x);
+            }
+            animator.SetBool(AnimationStrings.isMoving, isMoving);
+
+        }
+        else
+        {
+            cc.offset = new Vector2(0, 0.2f); // Disable collider when dead
+            isMoving = false;
+
         }
     }
 

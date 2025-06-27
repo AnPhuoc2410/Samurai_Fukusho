@@ -11,4 +11,5 @@ public class AnimationStrings
     public static string canMove = "canMove";
     public static string isDying = "isDying";
     public static string hasTarget = "hasTarget";
+    internal static string isAlive = "isAlive";
 }

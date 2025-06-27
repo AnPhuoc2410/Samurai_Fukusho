@@ -3,7 +3,7 @@ using UnityEngine;
 public enum WalkDirection { Left, Right }
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection))]
-public class Golbin : MonoBehaviour
+public class Goblin : MonoBehaviour
 {
     public float speed = 3f;
     public float walkStopRate = 0.1f;
@@ -16,7 +16,7 @@ public class Golbin : MonoBehaviour
 
     private WalkDirection _walkDirection = WalkDirection.Left;
 
-    private WalkDirection walkDirection
+    private WalkDirection WalkDirection
     {
         get { return _walkDirection; }
         set
@@ -58,7 +58,7 @@ public class Golbin : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         touchingDirection = GetComponent<TouchingDirection>();
-        walkDirection = _walkDirection;
+        WalkDirection = _walkDirection;
         animator = GetComponent<Animator>();
     }
 
@@ -72,7 +72,7 @@ public class Golbin : MonoBehaviour
         if (touchingDirection.IsGrounded && touchingDirection.IsOnWall)
         {
             // Change direction when hitting a wall
-            walkDirection = walkDirection == WalkDirection.Right ? WalkDirection.Left : WalkDirection.Right;
+            WalkDirection = WalkDirection == WalkDirection.Right ? WalkDirection.Left : WalkDirection.Right;
         }
         if (CanMove)
         {

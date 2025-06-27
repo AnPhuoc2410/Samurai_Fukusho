@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4097542442077595499}
   - component: {fileID: 7699009567177666704}
   - component: {fileID: 3789444211338122493}
+  - component: {fileID: 1524394028516924702}
   - component: {fileID: 5469952182505619895}
   m_Layer: 8
   m_Name: GoblinEnemy
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 8
   m_Sprite: {fileID: 1517724221, guid: c6a5788293f3a57449c3674839d45384, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -204,6 +205,21 @@ MonoBehaviour:
   _isGrounded: 0
   _isOnWall: 0
   _isOnCelling: 0
+--- !u!114 &1524394028516924702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707031078386687130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c1414c94c97d8469cfc7f5c733c6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _isAlive: 1
+  isInvincible: 0
 --- !u!95 &5469952182505619895
 Animator:
   serializedVersion: 7
@@ -303,7 +319,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.133131, y: 2.042846}
+  m_Size: {x: 1.133131, y: 1.6}
   m_EdgeRadius: 0
 --- !u!114 &1336522602438939592
 MonoBehaviour:
