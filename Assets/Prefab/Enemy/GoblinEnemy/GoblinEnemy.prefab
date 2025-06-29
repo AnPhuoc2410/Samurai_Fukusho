@@ -218,9 +218,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c1414c94c97d8469cfc7f5c733c6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageableHit:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
+  timeSinceHit: 0
+  invincibleTimer: 0.25
 --- !u!95 &5469952182505619895
 Animator:
   serializedVersion: 7
@@ -414,14 +419,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.06719971, y: -0.03040123}
-      - {x: -1.0929251, y: 0.025283605}
+    - - {x: -0.56840515, y: 0.19261837}
+      - {x: -1.8065863, y: 0.37096336}
       - {x: -1.4257812, y: -0.27991343}
       - {x: -0.5803198, y: -0.5999502}
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.98366547, y: -0.5844922}
       - {x: 0.9336319, y: -0.2724557}
-      - {x: 0.5553198, y: 0.34635013}
+      - {x: 0.14273357, y: 0.4132561}
   m_UseDelaunayMesh: 0
 --- !u!114 &7084594418113287008
 MonoBehaviour:
@@ -436,3 +441,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
+  knockback: {x: 5, y: 2}

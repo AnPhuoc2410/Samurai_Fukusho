@@ -12,4 +12,7 @@ public class AnimationStrings
     public static string isDying = "isDying";
     public static string hasTarget = "hasTarget";
     internal static string isAlive = "isAlive";
+    internal static string isHit = "isHit";
+    internal static string hitTrigger = "hit";
+    internal static string lockVelocity = "lockVelocity";
 }

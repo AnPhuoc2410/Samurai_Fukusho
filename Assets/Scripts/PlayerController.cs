@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float airWalkSpeed = 3f;
     [SerializeField] private float jumpForce = 7f;
     TouchingDirection touchingDirection;
+    Damageable damageable;
 
     private Vector2 moveInput;
     private bool isFacingRight = true;
@@ -55,17 +56,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool LockVelocity
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.lockVelocity);
+        }
+        set
+        {
+            animator.SetBool(AnimationStrings.lockVelocity, value);
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
         touchingDirection = GetComponent<TouchingDirection>();
+        damageable = GetComponent<Damageable>();
     }
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * MoveSpeed, rb.linearVelocity.y);
+        if (!damageable.LockVelocity) rb.linearVelocity = new Vector2(moveInput.x * MoveSpeed, rb.linearVelocity.y);
+
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
 
@@ -123,5 +138,9 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger(AnimationStrings.attackTrigger);
         }
+    }
+    public void OnHit(int damage, Vector2 knockback)
+    {
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
     }
 }
