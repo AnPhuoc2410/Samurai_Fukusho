@@ -3,20 +3,23 @@ using UnityEngine;
 public enum WalkDirection { Left, Right }
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection))]
-public class Golbin : MonoBehaviour
+public class Goblin : MonoBehaviour
 {
     public float speed = 3f;
     public float walkStopRate = 0.1f;
     Rigidbody2D rb;
+    CapsuleCollider2D cc;
+
     public DetectionZone attackZone;
 
     private Vector2 walkVector = Vector2.right;
     TouchingDirection touchingDirection;
     Animator animator;
+    Damageable damageable;
 
     private WalkDirection _walkDirection = WalkDirection.Left;
 
-    private WalkDirection walkDirection
+    private WalkDirection WalkDirection
     {
         get { return _walkDirection; }
         set
@@ -54,12 +57,25 @@ public class Golbin : MonoBehaviour
         get { return animator.GetBool(AnimationStrings.canMove); }
     }
 
+    public bool LockVelocity
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.lockVelocity);
+        }
+        set
+        {
+            animator.SetBool(AnimationStrings.lockVelocity, value);
+        }
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        cc = GetComponent<CapsuleCollider2D>();
         touchingDirection = GetComponent<TouchingDirection>();
-        walkDirection = _walkDirection;
+        WalkDirection = _walkDirection;
         animator = GetComponent<Animator>();
+        damageable = GetComponent<Damageable>();
     }
 
     private void Update()
@@ -72,19 +88,24 @@ public class Golbin : MonoBehaviour
         if (touchingDirection.IsGrounded && touchingDirection.IsOnWall)
         {
             // Change direction when hitting a wall
-            walkDirection = walkDirection == WalkDirection.Right ? WalkDirection.Left : WalkDirection.Right;
+            WalkDirection = WalkDirection == WalkDirection.Right ? WalkDirection.Left : WalkDirection.Right;
         }
-        if (CanMove)
+        if (!damageable.LockVelocity)
         {
-            if (rb != null)
+            if (CanMove)
             {
-                rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
+                    rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
+            }
+            else
+            {
+                rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x, 0, walkStopRate), rb.linearVelocity.y);
             }
         }
-        else
-        {
-            rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x,0,walkStopRate), rb.linearVelocity.y);
-        }
 
+    }
+
+    public void OnHit(int damage, Vector2 knockback)
+    {
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
     }
 }
