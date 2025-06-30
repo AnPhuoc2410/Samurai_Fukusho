@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class Damageable : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit;
+    public UnityEvent damageableDeath;
 
     [SerializeField]
     private int _maxHealth = 100;
@@ -47,6 +48,16 @@ public class Damageable : MonoBehaviour
             _isAlive = value;
             animator.SetBool(AnimationStrings.isAlive, value);
             Debug.Log("IsAlive: " + value);
+            if (!value)
+            {
+                damageableDeath?.Invoke();
+                animator.SetBool(AnimationStrings.isAlive, false);
+                LockVelocity = true;
+            }
+            else
+            {
+                LockVelocity = false;
+            }
         }
     }
 
