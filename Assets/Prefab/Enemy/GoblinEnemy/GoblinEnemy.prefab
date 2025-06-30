@@ -221,6 +221,9 @@ MonoBehaviour:
   damageableHit:
     m_PersistentCalls:
       m_Calls: []
+  damageableDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -437,8 +440,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8849323028378606975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e264592f5302742a363f5766149de1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a01f8dea3708aa458086642157404d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
-  knockback: {x: 5, y: 2}
+  knockback: {x: 1.5, y: 2}

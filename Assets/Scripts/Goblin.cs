@@ -68,6 +68,19 @@ public class Goblin : MonoBehaviour
             animator.SetBool(AnimationStrings.lockVelocity, value);
         }
     }
+
+    public float AttackCooldown
+    {
+        get
+        {
+            return animator.GetFloat(AnimationStrings.AttackCooldown);
+        }
+        private set
+        {
+            animator.SetFloat(AnimationStrings.AttackCooldown, Mathf.Max(value, 0));
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -81,6 +94,8 @@ public class Goblin : MonoBehaviour
     private void Update()
     {
         HasTarget = attackZone.detectedColliders.Count > 0;
+        if(AttackCooldown > 0)
+            AttackCooldown -= Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -94,7 +109,7 @@ public class Goblin : MonoBehaviour
         {
             if (CanMove)
             {
-                    rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
+                rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
             }
             else
             {
