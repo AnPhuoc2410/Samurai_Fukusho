@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class Damageable : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit;
+    public UnityEvent damageableDeath;
 
     [SerializeField]
     private int _maxHealth = 100;
@@ -34,12 +35,12 @@ public class Damageable : MonoBehaviour
             _currentHealth = value;
             if (_currentHealth <= 0)
             {
-                IsAvlive = false;
+                IsAlive = false;
             }
         }
     }
 
-    public bool IsAvlive
+    public bool IsAlive
     {
         get { return _isAlive; }
         private set
@@ -47,6 +48,16 @@ public class Damageable : MonoBehaviour
             _isAlive = value;
             animator.SetBool(AnimationStrings.isAlive, value);
             Debug.Log("IsAlive: " + value);
+            if (!value)
+            {
+                damageableDeath?.Invoke();
+                animator.SetBool(AnimationStrings.isAlive, false);
+                LockVelocity = true;
+            }
+            else
+            {
+                LockVelocity = false;
+            }
         }
     }
 
@@ -83,7 +94,7 @@ public class Damageable : MonoBehaviour
     }
     public bool Hit(int damage, Vector2 knockback)
     {
-        if (IsAvlive && !isInvincible)
+        if (IsAlive && !isInvincible)
         {
             Health -= damage;
             isInvincible = true;

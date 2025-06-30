@@ -100,10 +100,10 @@ TextureImporter:
       name: DEATH_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 66
-        height: 64
+        x: 0
+        y: 0
+        width: 78
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,10 +122,10 @@ TextureImporter:
       name: DEATH_2
       rect:
         serializedVersion: 2
-        x: 81
-        y: 1
-        width: 58
-        height: 55
+        x: 156
+        y: 0
+        width: 78
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: DEATH_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 78
         y: 0
-        width: 59
-        height: 57
+        width: 78
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +166,10 @@ TextureImporter:
       name: DEATH_3
       rect:
         serializedVersion: 2
-        x: 238
+        x: 234
         y: 0
-        width: 63
-        height: 57
+        width: 78
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: DEATH_4
       rect:
         serializedVersion: 2
-        x: 318
+        x: 312
         y: 0
-        width: 59
-        height: 57
+        width: 78
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: DEATH_5
       rect:
         serializedVersion: 2
-        x: 396
+        x: 390
         y: 0
-        width: 60
-        height: 57
+        width: 78
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,75 +244,10 @@ TextureImporter:
     nameFileIdTable:
       DEATH_0: 593167427
       DEATH_1: -317823016
-      DEATH_10: -1290557989
-      DEATH_11: 670373318
-      DEATH_12: 223149022
-      DEATH_13: 356301026
-      DEATH_14: 811668582
-      DEATH_15: 433083881
-      DEATH_16: -748767719
-      DEATH_17: -60561122
-      DEATH_18: 543703724
-      DEATH_19: -1177067886
       DEATH_2: 1851564342
-      DEATH_20: 1937207026
-      DEATH_21: 270346925
-      DEATH_22: -2128863925
-      DEATH_23: 1643543042
-      DEATH_24: 333289105
-      DEATH_25: -557904446
-      DEATH_26: -1314300320
-      DEATH_27: -328985444
-      DEATH_28: 769916858
-      DEATH_29: -917653676
       DEATH_3: 2093940533
-      DEATH_30: 1397816375
-      DEATH_31: 872309157
-      DEATH_32: 54959820
-      DEATH_33: -2061940750
-      DEATH_34: -2019441985
-      DEATH_35: 1725499077
-      DEATH_36: 965125413
-      DEATH_37: -1302353497
-      DEATH_38: 647427045
-      DEATH_39: 1207923818
       DEATH_4: -1539176353
-      DEATH_40: -1296226804
-      DEATH_41: -2135145910
-      DEATH_42: -1408340987
-      DEATH_43: 1750797345
-      DEATH_44: -407674254
-      DEATH_45: 762282354
-      DEATH_46: 2022727857
-      DEATH_47: -709874931
-      DEATH_48: 1935627618
-      DEATH_49: -1097577122
       DEATH_5: 860280039
-      DEATH_50: -657397523
-      DEATH_51: -1443348380
-      DEATH_52: -982059770
-      DEATH_53: 583599032
-      DEATH_54: 909241008
-      DEATH_55: -348016107
-      DEATH_56: -1227591428
-      DEATH_57: -583810744
-      DEATH_58: 2145317223
-      DEATH_59: -1708661842
-      DEATH_6: 602101134
-      DEATH_60: 1931099526
-      DEATH_61: -195795566
-      DEATH_62: -158132992
-      DEATH_63: 1774852460
-      DEATH_64: -1151467476
-      DEATH_65: 2045504152
-      DEATH_66: 1942541183
-      DEATH_67: 1440046290
-      DEATH_68: 87091381
-      DEATH_69: 1375867339
-      DEATH_7: 421468579
-      DEATH_70: -477777691
-      DEATH_8: -2085997288
-      DEATH_9: -539590413
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -105,7 +105,7 @@ TextureImporter:
         width: 76
         height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -122,12 +122,12 @@ TextureImporter:
       name: FLYING_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 2
-        width: 62
-        height: 64
+        x: 79
+        y: 0
+        width: 79
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -144,12 +144,12 @@ TextureImporter:
       name: FLYING_2
       rect:
         serializedVersion: 2
-        x: 165
-        y: 6
-        width: 66
-        height: 59
+        x: 158
+        y: 0
+        width: 79
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: FLYING_3
       rect:
         serializedVersion: 2
-        x: 244
-        y: 6
-        width: 65
-        height: 58
+        x: 237
+        y: 0
+        width: 79
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
