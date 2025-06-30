@@ -100,10 +100,10 @@ TextureImporter:
       name: HURT_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 2
-        width: 62
-        height: 64
+        x: 0
+        y: 0
+        width: 79
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,10 +122,10 @@ TextureImporter:
       name: HURT_1
       rect:
         serializedVersion: 2
-        x: 86
-        y: 8
-        width: 61
-        height: 61
+        x: 79
+        y: 0
+        width: 79
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: HURT_2
       rect:
         serializedVersion: 2
-        x: 165
-        y: 8
-        width: 61
-        height: 61
+        x: 158
+        y: 0
+        width: 79
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +166,10 @@ TextureImporter:
       name: HURT_3
       rect:
         serializedVersion: 2
-        x: 244
-        y: 2
-        width: 61
-        height: 66
+        x: 237
+        y: 0
+        width: 79
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -11,4 +11,8 @@ public class AnimationStrings
     public static string canMove = "canMove";
     public static string isDying = "isDying";
     public static string hasTarget = "hasTarget";
+    public static string isAlive = "isAlive";
+    public static string isHit = "isHit";
+    public static string hitTrigger = "hit";
+    public static string lockVelocity = "lockVelocity";
 }
