@@ -40,7 +40,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608005727610003317}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -151,8 +151,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.15988922, y: -0.31833935}
-  m_Size: {x: 1.7695122, y: 2.101694}
+  m_Offset: {x: -0.1287713, y: -0.26060677}
+  m_Size: {x: 1.1921911, y: 2.0192204}
   m_Direction: 0
 --- !u!114 &8828902017634363477
 MonoBehaviour:
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3638602643203969799}
   - component: {fileID: 8332489576941981446}
   - component: {fileID: 5314044233000216983}
-  - component: {fileID: 6579955603908685656}
+  - component: {fileID: 2569788373227541144}
   - component: {fileID: 4863954161527096358}
   m_Layer: 8
   m_Name: FlightEye
@@ -347,7 +347,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.3207624, y: -0.12147379}
   m_Size: {x: 0.95631933, y: 1.2465277}
   m_Direction: 0
---- !u!114 &6579955603908685656
+--- !u!114 &2569788373227541144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,17 +356,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 8494234129895725915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc36c54ed4c001d46a44b5562a1bb861, type: 3}
+  m_Script: {fileID: 11500000, guid: f4c1414c94c97d8469cfc7f5c733c6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageReceived:
+  damageableHit:
     m_PersistentCalls:
-      m_Calls: []
-  animator: {fileID: 3638602643203969799}
+      m_Calls:
+      - m_Target: {fileID: 8494234129895725915}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  damageableDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4863954161527096358}
+        m_TargetAssemblyTypeName: FlyingEye, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _maxHealth: 100
-  _health: 100
   _isAlive: 1
   isInvincible: 0
+  timeSinceHit: 0
+  invincibleTimer: 0.25
 --- !u!114 &4863954161527096358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,4 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionZone: {fileID: 8828902017634363477}
+  waypoints: []
+  flySpeed: 2
+  waypointReachedDistance: 0.1
   _hasTarget: 0
