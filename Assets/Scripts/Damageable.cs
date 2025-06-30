@@ -34,12 +34,12 @@ public class Damageable : MonoBehaviour
             _currentHealth = value;
             if (_currentHealth <= 0)
             {
-                IsAvlive = false;
+                IsAlive = false;
             }
         }
     }
 
-    public bool IsAvlive
+    public bool IsAlive
     {
         get { return _isAlive; }
         private set
@@ -49,6 +49,7 @@ public class Damageable : MonoBehaviour
             Debug.Log("IsAlive: " + value);
         }
     }
+
 
     public bool LockVelocity
     {
@@ -83,7 +84,7 @@ public class Damageable : MonoBehaviour
     }
     public bool Hit(int damage, Vector2 knockback)
     {
-        if (IsAvlive && !isInvincible)
+        if (IsAlive && !isInvincible)
         {
             Health -= damage;
             isInvincible = true;
