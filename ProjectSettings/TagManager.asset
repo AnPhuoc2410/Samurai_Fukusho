@@ -17,12 +17,7 @@ TagManager:
   - PLayerHitbox
   - EnemyHitbox
   - Background
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - GroundDetection
   - 
   - 
   - 

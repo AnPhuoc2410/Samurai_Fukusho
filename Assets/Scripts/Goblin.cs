@@ -11,6 +11,7 @@ public class Goblin : MonoBehaviour
     CapsuleCollider2D cc;
 
     public DetectionZone attackZone;
+    public DetectionZone cliffDetectionZone;
 
     private Vector2 walkVector = Vector2.right;
     TouchingDirection touchingDirection;
@@ -122,5 +123,12 @@ public class Goblin : MonoBehaviour
     public void OnHit(int damage, Vector2 knockback)
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
+    }
+    public void OnCliffDetected()
+    {
+        if (touchingDirection.IsGrounded)
+        {
+            WalkDirection = WalkDirection == WalkDirection.Right ? WalkDirection.Left : WalkDirection.Right;
+        }
     }
 }
