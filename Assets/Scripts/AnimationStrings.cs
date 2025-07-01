@@ -15,4 +15,5 @@ public class AnimationStrings
     internal static string isHit = "isHit";
     internal static string hitTrigger = "hit";
     internal static string lockVelocity = "lockVelocity";
+    public static string AttackCooldown = "attackCooldown";
 }

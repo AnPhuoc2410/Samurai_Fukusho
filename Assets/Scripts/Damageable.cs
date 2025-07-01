@@ -61,6 +61,7 @@ public class Damageable : MonoBehaviour
         }
     }
 
+
     public bool LockVelocity
     {
         get

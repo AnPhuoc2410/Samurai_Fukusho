@@ -11,6 +11,7 @@ public class Goblin : MonoBehaviour
     CapsuleCollider2D cc;
 
     public DetectionZone attackZone;
+    public DetectionZone cliffDetectionZone;
 
     private Vector2 walkVector = Vector2.right;
     TouchingDirection touchingDirection;
@@ -68,6 +69,19 @@ public class Goblin : MonoBehaviour
             animator.SetBool(AnimationStrings.lockVelocity, value);
         }
     }
+
+    public float AttackCooldown
+    {
+        get
+        {
+            return animator.GetFloat(AnimationStrings.AttackCooldown);
+        }
+        private set
+        {
+            animator.SetFloat(AnimationStrings.AttackCooldown, Mathf.Max(value, 0));
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -81,6 +95,8 @@ public class Goblin : MonoBehaviour
     private void Update()
     {
         HasTarget = attackZone.detectedColliders.Count > 0;
+        if(AttackCooldown > 0)
+            AttackCooldown -= Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -94,7 +110,7 @@ public class Goblin : MonoBehaviour
         {
             if (CanMove)
             {
-                    rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
+                rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
             }
             else
             {
@@ -107,5 +123,12 @@ public class Goblin : MonoBehaviour
     public void OnHit(int damage, Vector2 knockback)
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
+    }
+    public void OnCliffDetected()
+    {
+        if (touchingDirection.IsGrounded)
+        {
+            WalkDirection = WalkDirection == WalkDirection.Right ? WalkDirection.Left : WalkDirection.Right;
+        }
     }
 }
