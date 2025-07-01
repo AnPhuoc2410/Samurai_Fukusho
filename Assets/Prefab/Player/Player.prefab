@@ -410,6 +410,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageableDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -455,7 +458,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7253167756683646518}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -510,7 +513,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7253167756683646518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e264592f5302742a363f5766149de1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a01f8dea3708aa458086642157404d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 15

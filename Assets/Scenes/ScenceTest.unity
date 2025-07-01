@@ -4849,17 +4849,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 33763290}
   followTarget: {fileID: 472888653}
---- !u!114 &415285811 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7699009567177666704, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
-  m_PrefabInstance: {fileID: 463106837}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 359106d55c690f94d9acb2b0a0fde93e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &463106837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4908,30 +4897,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1524394028516924702, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
-      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524394028516924702, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
-      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 415285811}
-    - target: {fileID: 1524394028516924702, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
-      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524394028516924702, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
-      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnHit
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524394028516924702, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
-      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Goblin, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524394028516924702, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
-      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6707031078386687130, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
       propertyPath: m_Name
       value: GoblinEnemy
@@ -4952,18 +4917,6 @@ PrefabInstance:
     - target: {fileID: 672597975836069524, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6777711302274061910, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 472888652}
-    - target: {fileID: 6777711302274061910, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 472888651}
-    - target: {fileID: 6852934480187180297, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7797637335284552775, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5010,16 +4963,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
---- !u!95 &472888651 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7196154010663434676, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
-  m_PrefabInstance: {fileID: 472888650}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &472888652 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 5003644442495383385, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
-  m_PrefabInstance: {fileID: 472888650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &472888653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7797637335284552775, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
