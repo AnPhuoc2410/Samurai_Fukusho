@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthText : MonoBehaviour
 {
-    public Vector3 moveSpeed = Vector3.up;
+    public Vector3 moveSpeed = new Vector3(0, 75, 0);
     public float timeToFade = 1f;
     private float timeElapsed = 0f;
     private Color startColor;
