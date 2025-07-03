@@ -12319,6 +12319,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4225281745584922427, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225281745584922427, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
+      propertyPath: 'waypoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1631199643}
+    - target: {fileID: 4225281745584922427, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
+      propertyPath: 'waypoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1256745912}
+    - target: {fileID: 4225281745584922427, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
+      propertyPath: 'waypoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1908374002}
+    - target: {fileID: 4225281745584922427, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
+      propertyPath: 'waypoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 347841401}
     - target: {fileID: 6070570757214126518, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
       propertyPath: m_SortingOrder
       value: 5

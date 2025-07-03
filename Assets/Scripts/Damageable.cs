@@ -1,3 +1,4 @@
+using Assets.Scripts.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -103,10 +104,24 @@ public class Damageable : MonoBehaviour
             animator.SetTrigger(AnimationStrings.hitTrigger);
             LockVelocity = true;
             damageableHit?.Invoke(damage, knockback);
+            CharacterEvents.characterDamaged?.Invoke(gameObject, damage);
 
             return true;
         }
         return false;
+    }
+    public bool Heal(int amount)
+    {
+        if (IsAlive && Health < MaxHealth)
+        {
+            int maxHeal = Mathf.Max(MaxHealth - Health, 0);
+            int actualHeal = Mathf.Min(maxHeal, amount);
+            Health += actualHeal;
+            CharacterEvents.characterHealed(gameObject, actualHeal);
+            return true; // Healing was successful  
+
+        }
+        return false; // Healing failed  
     }
 
 }
