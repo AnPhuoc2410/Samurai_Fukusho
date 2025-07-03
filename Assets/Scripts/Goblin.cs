@@ -2,10 +2,11 @@ using UnityEngine;
 
 public enum WalkDirection { Left, Right }
 
-[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection), typeof(Damageable))]
 public class Goblin : MonoBehaviour
 {
-    public float speed = 3f;
+    public float walkAccel = 3f;
+    public float maxSpeed = 5f;
     public float walkStopRate = 0.1f;
     Rigidbody2D rb;
     CapsuleCollider2D cc;
@@ -95,7 +96,7 @@ public class Goblin : MonoBehaviour
     private void Update()
     {
         HasTarget = attackZone.detectedColliders.Count > 0;
-        if(AttackCooldown > 0)
+        if (AttackCooldown > 0)
             AttackCooldown -= Time.deltaTime;
     }
 
@@ -110,7 +111,8 @@ public class Goblin : MonoBehaviour
         {
             if (CanMove)
             {
-                rb.linearVelocity = new Vector2(walkVector.x * speed, rb.linearVelocity.y);
+                float xVelocity = Mathf.Clamp(rb.linearVelocity.x + (walkAccel * walkVector.x * Time.fixedDeltaTime), -maxSpeed, maxSpeed);
+                rb.linearVelocity = new Vector2(xVelocity, rb.linearVelocity.y);
             }
             else
             {
