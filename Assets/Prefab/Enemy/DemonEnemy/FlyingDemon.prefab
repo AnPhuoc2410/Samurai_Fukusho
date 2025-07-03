@@ -76,6 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8229e445955450429b55484b9c37b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoColliderRemain:
+    m_PersistentCalls:
+      m_Calls: []
   detectedColliders: []
 --- !u!70 &4981349510384746007
 CapsuleCollider2D:
@@ -327,11 +330,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8920016513327105599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed61a49f80385cc48b1c81cf84b7e187, type: 3}
+  m_Script: {fileID: 11500000, guid: c32317bef9f185849906a15b745c96f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6937114446618081857, guid: 47dabe6b8b0171445a44a177f7c151ca, type: 3}
-  launchPoint: {fileID: 9090063299956874815}
+  detectionZone: {fileID: 3556287679045656184}
+  waypoints: []
+  flySpeed: 2
+  waypointReachedDistance: 0.1
+  projectileLauncher: {fileID: 0}
+  attackCooldown: 2
+  _hasTarget: 0
 --- !u!114 &1014796151710009321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,13 +349,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8920016513327105599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 456548cab8db651409aae9c2f969c847, type: 3}
+  m_Script: {fileID: 11500000, guid: 96df6dd99691c924db2fbdcc57acef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionZone: {fileID: 3556287679045656184}
-  waypoints: []
-  flySpeed: 3
-  waypointReachedDistance: 0.1
-  projectileLauncher: {fileID: 4225281745584922427}
-  attackCooldown: 2
-  _hasTarget: 0
+  projectilePrefab: {fileID: 6937114446618081857, guid: 47dabe6b8b0171445a44a177f7c151ca, type: 3}
+  launchPoint: {fileID: 9090063299956874815}

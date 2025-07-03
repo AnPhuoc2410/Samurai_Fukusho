@@ -7,9 +7,6 @@ public class Demon : MonoBehaviour
     public List<Transform> waypoints;
     public float flySpeed = 2f;
     public float waypointReachedDistance = 0.1f;
-
-    // Add these new fields
-    public ProjectileLauncher projectileLauncher;
     public float attackCooldown = 2f;
     private float lastAttackTime = 0f;
 
@@ -103,12 +100,6 @@ public class Demon : MonoBehaviour
     {
         lastAttackTime = Time.time;
         animator.SetTrigger("attack"); // Trigger attack animation
-
-        // Launch projectile (this should be called from animation event or after a delay)
-        if (projectileLauncher != null)
-        {
-            projectileLauncher.LaunchProjectile();
-        }
     }
 
     private void Flight()
