@@ -12,8 +12,6 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         gameCanvas = FindFirstObjectByType<Canvas>();
-        CharacterEvents.characterDamaged += CharacterTookDamage;
-        CharacterEvents.characterHealed += CharacterHealed;
     }
 
     private void OnEnable()
