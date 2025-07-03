@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3668009258055523057}
   - component: {fileID: 3603889371659258548}
   - component: {fileID: 8828902017634363477}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: AttackDetectionZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8229e445955450429b55484b9c37b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoColliderRemain:
+    m_PersistentCalls:
+      m_Calls: []
   detectedColliders: []
 --- !u!1 &8494234129895725915
 GameObject:
