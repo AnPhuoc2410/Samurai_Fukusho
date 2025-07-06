@@ -76,6 +76,14 @@ public class PlayerController : MonoBehaviour
         touchingDirection = GetComponent<TouchingDirection>();
         damageable = GetComponent<Damageable>();
     }
+    private void OnEnable()
+    {
+        damageable.damageableDeath.AddListener(OnDeath);
+    }
+    private void OnDisable()
+    {
+        damageable.damageableDeath.RemoveListener(OnDeath);
+    }
 
     private void FixedUpdate()
     {
@@ -99,7 +107,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            cc.offset = new Vector2(0, 0.2f); // Disable collider when dead
             isMoving = false;
 
         }
@@ -142,5 +149,10 @@ public class PlayerController : MonoBehaviour
     public void OnHit(int damage, Vector2 knockback)
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
+    }
+    public void OnDeath()
+    {
+        cc.offset = new Vector2(0, 0.2f); // Disable collider when dead
+        rb.linearVelocity = Vector2.zero;
     }
 }
