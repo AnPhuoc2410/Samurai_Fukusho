@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 8
-  airWalkSpeed: 3
+  airWalkSpeed: 5
   jumpForce: 7
 --- !u!114 &4518609225088637462
 MonoBehaviour:
