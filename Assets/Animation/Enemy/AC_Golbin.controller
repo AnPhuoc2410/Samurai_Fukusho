@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8434522586898516283
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255d51b9eb3b1984a9d381457d2561b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundToPlay: {fileID: 8300000, guid: e1c63daa1a7ebe3468ac0fe0f67e8856, type: 3}
+  volume: 1
+  playOnEnter: 1
+  playOnExit: 0
+  playAfterDelay: 0
+  playDelay: 10
 --- !u!1101 &-8236332505495853479
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -197,6 +215,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 7641093472155850401}
   - {fileID: -4986567472416017097}
+  - {fileID: -8434522586898516283}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
