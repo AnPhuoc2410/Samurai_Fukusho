@@ -69,14 +69,6 @@ public class PlayerController : MonoBehaviour
     {
         damageable.damageableDeath.RemoveListener(OnDeath);
     }
-    private void OnEnable()
-    {
-        damageable.damageableDeath.AddListener(OnDeath);
-    }
-    private void OnDisable()
-    {
-        damageable.damageableDeath.RemoveListener(OnDeath);
-    }
 
     private void FixedUpdate()
     {
