@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(TouchingDirection))]
+//[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(TouchingDirection), typeof(PlayerHealth))]
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float airWalkSpeed = 3f;
     [SerializeField] private float jumpForce = 7f;
-    TouchingDirection touchingDirection;
-    Damageable damageable;
+
+    private TouchingDirection touchingDirection;
+    private Damageable damageable;
+    private PlayerHealth playerHealth;
 
     private Vector2 moveInput;
     private bool isFacingRight = true;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CanMove => animator.GetBool(AnimationStrings.canMove);
     public bool IsAlive => animator.GetBool(AnimationStrings.isAlive);
+
     private float MoveSpeed
     {
         get
@@ -32,40 +35,21 @@ public class PlayerController : MonoBehaviour
                 {
                     if (!touchingDirection.IsGrounded)
                     {
-                        return airWalkSpeed; // Air movement speed
+                        return airWalkSpeed;
                     }
 
-                    if (isRunning)
-                    {
-                        return runSpeed;
-                    }
-                    else
-                    {
-                        return walkSpeed;
-                    }
-                }
-                else
-                {
-                    return 0f; //Idle
+                    return isRunning ? runSpeed : walkSpeed;
                 }
             }
-            else
-            {
-                return 0f; // Cannot move
-            }
+
+            return 0f;
         }
     }
 
     public bool LockVelocity
     {
-        get
-        {
-            return animator.GetBool(AnimationStrings.lockVelocity);
-        }
-        set
-        {
-            animator.SetBool(AnimationStrings.lockVelocity, value);
-        }
+        get => animator.GetBool(AnimationStrings.lockVelocity);
+        set => animator.SetBool(AnimationStrings.lockVelocity, value);
     }
 
     private void Awake()
@@ -75,6 +59,15 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         touchingDirection = GetComponent<TouchingDirection>();
         damageable = GetComponent<Damageable>();
+        playerHealth = GetComponent<PlayerHealth>();
+    }
+    private void OnEnable()
+    {
+        damageable.damageableDeath.AddListener(OnDeath);
+    }
+    private void OnDisable()
+    {
+        damageable.damageableDeath.RemoveListener(OnDeath);
     }
     private void OnEnable()
     {
@@ -87,7 +80,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!damageable.LockVelocity) rb.linearVelocity = new Vector2(moveInput.x * MoveSpeed, rb.linearVelocity.y);
+        if (!damageable.LockVelocity)
+        {
+            rb.linearVelocity = new Vector2(moveInput.x * MoveSpeed, rb.linearVelocity.y);
+        }
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
@@ -95,26 +91,28 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+
         if (IsAlive)
         {
             isMoving = moveInput != Vector2.zero;
+
             if (moveInput.x != 0)
             {
                 SetFacingDirection(moveInput.x);
             }
-            animator.SetBool(AnimationStrings.isMoving, isMoving);
 
+            animator.SetBool(AnimationStrings.isMoving, isMoving);
         }
         else
         {
             isMoving = false;
-
         }
     }
 
     private void SetFacingDirection(float directionX)
     {
         bool shouldFaceRight = directionX > 0;
+
         if (isFacingRight != shouldFaceRight)
         {
             isFacingRight = shouldFaceRight;
@@ -146,9 +144,17 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger(AnimationStrings.attackTrigger);
         }
     }
+
+    // Gọi khi bị enemy đánh
     public void OnHit(int damage, Vector2 knockback)
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
+
+        // Trừ máu
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damage);
+        }
     }
     public void OnDeath()
     {
