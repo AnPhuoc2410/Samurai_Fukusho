@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a72575bf05312443a8da6124f43a07b
+guid: 637273314d04e2445bee9945eaf2997a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,12 +97,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BtnA_0
+      name: BtnSpace_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 148
-        width: 3080
+        y: 103
+        width: 2868
         height: 533
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 108b09ac6802beb4bb94a520a590ec8a
-      internalID: -351435906
+      spriteID: 19943125529d6a543944a60fb1e50771
+      internalID: -1090676972
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fe78b447a37c01e4abbab88c9316f80d
+    spriteID: 15ab9d06ac58da348b9e13a7614b89e3
     internalID: 0
     vertices: []
     indices: 
@@ -139,7 +139,7 @@ TextureImporter:
       ATTACK 1_4: 8810267081325647525
       ATTACK 1_5: 4172772526038875549
       ATTACK 1_6: -9022913262071093832
-      BtnA_0: -351435906
+      BtnSpace_0: -1090676972
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
