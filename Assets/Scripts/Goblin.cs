@@ -92,6 +92,15 @@ public class Goblin : MonoBehaviour
         animator = GetComponent<Animator>();
         damageable = GetComponent<Damageable>();
     }
+    private void OnEnable()
+    {
+        damageable.damageableDeath.AddListener(OnDeath);
+    }
+
+    private void OnDisable()
+    {
+        damageable.damageableDeath.RemoveListener(OnDeath);
+    }
 
     private void Update()
     {
@@ -126,6 +135,12 @@ public class Goblin : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
     }
+    public void OnDeath()
+    {
+        cc.offset = new Vector2(0, 0.327f);
+        rb.linearVelocity = Vector2.zero;
+    }
+
     public void OnCliffDetected()
     {
         if (touchingDirection.IsGrounded)
