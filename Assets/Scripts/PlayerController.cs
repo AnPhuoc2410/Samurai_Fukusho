@@ -61,6 +61,14 @@ public class PlayerController : MonoBehaviour
         damageable = GetComponent<Damageable>();
         playerHealth = GetComponent<PlayerHealth>();
     }
+    private void OnEnable()
+    {
+        damageable.damageableDeath.AddListener(OnDeath);
+    }
+    private void OnDisable()
+    {
+        damageable.damageableDeath.RemoveListener(OnDeath);
+    }
 
     private void FixedUpdate()
     {
@@ -140,5 +148,10 @@ public class PlayerController : MonoBehaviour
         {
             playerHealth.TakeDamage(damage);
         }
+    }
+    public void OnDeath()
+    {
+        cc.offset = new Vector2(0, 0.2f); // Disable collider when dead
+        rb.linearVelocity = Vector2.zero;
     }
 }
