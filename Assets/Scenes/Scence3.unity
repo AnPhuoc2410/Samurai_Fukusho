@@ -14285,6 +14285,18 @@ PrefabInstance:
       propertyPath: 'waypoints.Array.data[3]'
       value: 
       objectReference: {fileID: 347841401}
+    - target: {fileID: 4981349510384746007, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
+      propertyPath: m_Size.y
+      value: 13.245488
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981349510384746007, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981349510384746007, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.819119
+      objectReference: {fileID: 0}
     - target: {fileID: 6070570757214126518, guid: fd251edc41e04cf4ca2e1683ad47979f, type: 3}
       propertyPath: m_SortingOrder
       value: 5
