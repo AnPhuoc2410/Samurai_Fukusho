@@ -21,14 +21,15 @@ public class AnimaState_MultiSFX : StateMachineBehaviour
 
     [Header("Playback Options")]
     public bool randomPlay = false;
-    [Tooltip("If enabled, all instances of this prefab will share the same sound counter. If disabled, each instance has its own counter.")]
-    public bool usePrefabCounter = false;
+    [Tooltip("If enabled, all game objects will share one global counter. If disabled, instances of the same prefab will share their own counter.")]
+    public bool useGlobalCounter = false;
 
-    // Dictionary to store counters for each prefab
+    // Global counter shared between ALL instances
+    private static int globalSoundIndex = 0;
+    // Dictionary to store counters for each prefab type
     private static Dictionary<string, int> prefabCounters = new Dictionary<string, int>();
     
     // Sound sequence tracking
-    private int localSoundIndex = 0;
     private string prefabName;
     private float timeSinceEntered = 0;
     private bool hasDelayedSoundPlayed = false;
@@ -53,7 +54,9 @@ public class AnimaState_MultiSFX : StateMachineBehaviour
     {
         get
         {
-            if (!usePrefabCounter) return localSoundIndex;
+            if (useGlobalCounter)
+                return globalSoundIndex;
+
             if (!prefabCounters.ContainsKey(prefabName))
             {
                 prefabCounters[prefabName] = 0;
@@ -62,10 +65,10 @@ public class AnimaState_MultiSFX : StateMachineBehaviour
         }
         set
         {
-            if (usePrefabCounter)
-                prefabCounters[prefabName] = value;
+            if (useGlobalCounter)
+                globalSoundIndex = value;
             else
-                localSoundIndex = value;
+                prefabCounters[prefabName] = value;
         }
     }
 
