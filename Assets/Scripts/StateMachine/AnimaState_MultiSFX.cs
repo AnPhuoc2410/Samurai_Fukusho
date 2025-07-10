@@ -6,26 +6,46 @@ using System.Collections.Generic;
 public class SoundData
 {
     public AudioClip clip;
-    public float volume = 1f;
+    public float volume = 1.0f;
     public float delay = 0.25f;
 }
 
 public class AnimaState_MultiSFX : StateMachineBehaviour
 {
+    [Header("Sound Settings")]
     public List<SoundData> soundsToPlay = new List<SoundData>();
     public bool playOnEnter = true, playOnExit = false, playAfterDelay = false;
+
+    [Header("Playback Options")]
     public bool randomPlay = false;
+    [Tooltip("If enabled, all instances will share the same sound counter. If disabled, each instance has its own counter.")]
+    public bool useGlobalCounter = false;
+
+    // Global counter shared between all instances
+    private static int globalSoundIndex = 0;
 
     // Sound sequence tracking
-    private int currentSoundIndex = 0;
+    private int localSoundIndex = 0;
     private float timeSinceEntered = 0;
     private bool hasDelayedSoundPlayed = false;
+
+    private int CurrentIndex
+    {
+        get => useGlobalCounter ? globalSoundIndex : localSoundIndex;
+        set
+        {
+            if (useGlobalCounter)
+                globalSoundIndex = value;
+            else
+                localSoundIndex = value;
+        }
+    }
 
     private void PlayCurrentSound(Animator animator)
     {
         if (soundsToPlay.Count == 0) return;
 
-        int index = currentSoundIndex;
+        int index = CurrentIndex;
         if (randomPlay)
         {
             index = UnityEngine.Random.Range(0, soundsToPlay.Count);
@@ -35,7 +55,7 @@ public class AnimaState_MultiSFX : StateMachineBehaviour
         AudioSource.PlayClipAtPoint(sound.clip, animator.gameObject.transform.position, sound.volume);
 
         // Advance to next sound or reset to beginning
-        currentSoundIndex = (currentSoundIndex + 1) % soundsToPlay.Count;
+        CurrentIndex = (CurrentIndex + 1) % soundsToPlay.Count;
     }
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -57,7 +77,7 @@ public class AnimaState_MultiSFX : StateMachineBehaviour
         {
             timeSinceEntered += Time.deltaTime;
 
-            if(timeSinceEntered > soundsToPlay[currentSoundIndex].delay)
+            if(timeSinceEntered > soundsToPlay[CurrentIndex].delay)
             {
                 PlayCurrentSound(animator);
                 hasDelayedSoundPlayed = true;
