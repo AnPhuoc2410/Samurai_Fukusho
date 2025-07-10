@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Open_door
+  m_Name: Door_Close
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -87,11 +87,12 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Close_door
+  m_Name: Door_Open
   m_Speed: 1000
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 6502343160510508923}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -131,3 +132,33 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &6502343160510508923
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad08db2b7cbd1d4aa554da9f283e6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomPlay: 0
+  counterMode: 2
+  soundsToPlay:
+  - clip: {fileID: 8300000, guid: c82e9b932649e844891c990522072d32, type: 3}
+    volume: 1
+    delay: 0
+  - clip: {fileID: 8300000, guid: 6fc7584d779147342a5205dcf47e4ace, type: 3}
+    volume: 1
+    delay: 0
+  - clip: {fileID: 8300000, guid: 41786289bf484ce4aae36e3cad59e1c4, type: 3}
+    volume: 1
+    delay: 0
+  - clip: {fileID: 8300000, guid: e81081e64062f2d4e875cd502762f5e1, type: 3}
+    volume: 1
+    delay: 0
+  playOnEnter: 1
+  playOnExit: 0
+  playAfterDelay: 0
