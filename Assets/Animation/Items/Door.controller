@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad08db2b7cbd1d4aa554da9f283e6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomPlay: 0
+  counterMode: 2
   soundsToPlay:
   - clip: {fileID: 8300000, guid: c82e9b932649e844891c990522072d32, type: 3}
     volume: 1
@@ -160,5 +162,3 @@ MonoBehaviour:
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0
-  randomPlay: 0
-  useGlobalCounter: 0
