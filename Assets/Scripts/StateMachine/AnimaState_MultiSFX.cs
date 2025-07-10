@@ -1,6 +1,9 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [Serializable]
 public class SoundData
@@ -18,24 +21,49 @@ public class AnimaState_MultiSFX : StateMachineBehaviour
 
     [Header("Playback Options")]
     public bool randomPlay = false;
-    [Tooltip("If enabled, all instances will share the same sound counter. If disabled, each instance has its own counter.")]
-    public bool useGlobalCounter = false;
+    [Tooltip("If enabled, all instances of this prefab will share the same sound counter. If disabled, each instance has its own counter.")]
+    public bool usePrefabCounter = false;
 
-    // Global counter shared between all instances
-    private static int globalSoundIndex = 0;
-
+    // Dictionary to store counters for each prefab
+    private static Dictionary<string, int> prefabCounters = new Dictionary<string, int>();
+    
     // Sound sequence tracking
     private int localSoundIndex = 0;
+    private string prefabName;
     private float timeSinceEntered = 0;
     private bool hasDelayedSoundPlayed = false;
 
+    private string GetPrefabName(GameObject obj)
+    {
+        #if UNITY_EDITOR
+        var prefabRoot = PrefabUtility.GetNearestPrefabInstanceRoot(obj);
+        if (prefabRoot != null)
+        {
+            var prefabAsset = PrefabUtility.GetCorrespondingObjectFromSource(prefabRoot);
+            if (prefabAsset != null)
+            {
+                return prefabAsset.name;
+            }
+        }
+        #endif
+        return obj.name.Split(new[] { '(' })[0].Trim(); // Fallback for runtime & non-prefab
+    }
+
     private int CurrentIndex
     {
-        get => useGlobalCounter ? globalSoundIndex : localSoundIndex;
+        get
+        {
+            if (!usePrefabCounter) return localSoundIndex;
+            if (!prefabCounters.ContainsKey(prefabName))
+            {
+                prefabCounters[prefabName] = 0;
+            }
+            return prefabCounters[prefabName];
+        }
         set
         {
-            if (useGlobalCounter)
-                globalSoundIndex = value;
+            if (usePrefabCounter)
+                prefabCounters[prefabName] = value;
             else
                 localSoundIndex = value;
         }
@@ -61,6 +89,12 @@ public class AnimaState_MultiSFX : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Get and cache prefab name on first enter
+        if (string.IsNullOrEmpty(prefabName))
+        {
+            prefabName = GetPrefabName(animator.gameObject);
+        }
+
         if (playOnEnter)
         {
             PlayCurrentSound(animator);
