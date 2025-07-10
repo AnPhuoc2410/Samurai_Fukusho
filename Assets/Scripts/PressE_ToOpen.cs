@@ -1,16 +1,18 @@
 using UnityEngine;
 using System.Linq;
 
-public class PressE_ToOpen : MonoBehaviour
+public abstract class PressE_ToOpen : MonoBehaviour
 {
     public float interactRange = 2f;
-    private GameObject player;
-    private Animator animator;
-    private bool isOpened = false;
+    protected GameObject player;
+    protected Animator animator;
+    protected bool isOpened = false;
+    protected Collider2D interactableCollider;
 
-    void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
+        interactableCollider = GetComponent<Collider2D>();
         
         // Thử tìm Player bằng tag trước
         player = GameObject.FindGameObjectWithTag("Player");
@@ -37,9 +39,15 @@ public class PressE_ToOpen : MonoBehaviour
         {
             Debug.LogError($"[{gameObject.name}] Player instance not found! Please ensure Player has either 'Player' tag or is in 'Player' layer.");
         }
+
+        // Kiểm tra nếu không có Collider2D
+        if (interactableCollider == null)
+        {
+            Debug.LogError($"[{gameObject.name}] No Collider2D found! Please add a Collider2D component.");
+        }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (player == null || isOpened) return;
 
@@ -47,10 +55,28 @@ public class PressE_ToOpen : MonoBehaviour
 
         if (distance <= interactRange && Input.GetKeyDown(KeyCode.E))
         {
-            animator.SetBool("isOpen", true);
-            isOpened = true;
-
-            // TODO: Add mở loot, âm thanh, hiệu ứng, v.v.
+            OnInteract();
         }
+    }
+
+    // Phương thức cơ bản khi tương tác, có thể override trong các class con
+    protected virtual void OnInteract()
+    {
+        animator.SetBool("isOpen", true);
+        isOpened = true;
+
+        // Tắt collider khi mở
+        if (interactableCollider != null)
+        {
+            interactableCollider.enabled = false;
+        }
+    }
+
+    // Helper method để kiểm tra xem có thể tương tác không
+    public bool CanInteract()
+    {
+        if (player == null || isOpened) return false;
+        float distance = Vector2.Distance(player.transform.position, transform.position);
+        return distance <= interactRange;
     }
 }
