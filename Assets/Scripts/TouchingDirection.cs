@@ -29,7 +29,7 @@ public class TouchingDirection : MonoBehaviour
         private set
         {
             _isGrounded = value;
-            animator.SetBool(AnimationStrings.isGrouned, value);
+            animator.SetBool(AnimationStrings.isGrounded, value);
         }
     }
 

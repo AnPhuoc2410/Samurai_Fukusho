@@ -100,12 +100,12 @@ TextureImporter:
       name: Attack2_5
       rect:
         serializedVersion: 2
-        x: 1082
-        y: 82
-        width: 161
-        height: 129
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1250
+        y: 69
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -122,12 +122,12 @@ TextureImporter:
       name: Attack2_1
       rect:
         serializedVersion: 2
-        x: 109
-        y: 83
-        width: 72
-        height: 109
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 250
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -144,12 +144,12 @@ TextureImporter:
       name: Attack2_2
       rect:
         serializedVersion: 2
-        x: 334
-        y: 83
-        width: 72
-        height: 107
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 500
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: Attack2_3
       rect:
         serializedVersion: 2
-        x: 581
-        y: 83
-        width: 76
-        height: 115
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 750
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,12 +188,12 @@ TextureImporter:
       name: Attack2_4
       rect:
         serializedVersion: 2
-        x: 832
-        y: 83
-        width: 76
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1000
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: Attack2_7
       rect:
         serializedVersion: 2
-        x: 1592
+        x: 1750
         y: 70
-        width: 141
-        height: 150
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -232,12 +232,12 @@ TextureImporter:
       name: Attack2_6
       rect:
         serializedVersion: 2
-        x: 1340
-        y: 77
-        width: 148
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1500
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -251,23 +251,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_8
+      name: Attack2_0
       rect:
         serializedVersion: 2
-        x: 1860
-        y: 82
-        width: 66
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5199b613de6df0b489afe93b835ddcea
-      internalID: -1584839428
+      spriteID: be354138b38d5624c9aa9f80dafdbcb9
+      internalID: 2006211660
       vertices: []
       indices: 
       edges: []
@@ -288,21 +288,12 @@ TextureImporter:
     nameFileIdTable:
       Attack2_0: 2006211660
       Attack2_1: 760074166
-      Attack2_10: 63605843
-      Attack2_11: 1303544355
-      Attack2_12: -991463484
-      Attack2_13: 969731620
-      Attack2_14: -1764632224
-      Attack2_17: 2073276176
-      Attack2_19: 423737727
       Attack2_2: 992876612
-      Attack2_20: 1494082420
       Attack2_3: -1369638373
       Attack2_4: -1617343156
       Attack2_5: 328357074
       Attack2_6: 2006247626
       Attack2_7: -933449587
-      Attack2_8: -1584839428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

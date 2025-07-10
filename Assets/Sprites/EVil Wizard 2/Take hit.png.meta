@@ -100,12 +100,12 @@ TextureImporter:
       name: Take hit_0
       rect:
         serializedVersion: 2
-        x: 106
-        y: 83
-        width: 45
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -122,12 +122,12 @@ TextureImporter:
       name: Take hit_1
       rect:
         serializedVersion: 2
-        x: 358
-        y: 83
-        width: 34
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 250
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -144,12 +144,12 @@ TextureImporter:
       name: Take hit_2
       rect:
         serializedVersion: 2
-        x: 608
-        y: 83
-        width: 35
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 500
+        y: 70
+        width: 250
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
