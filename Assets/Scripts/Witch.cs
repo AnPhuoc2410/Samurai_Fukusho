@@ -7,7 +7,7 @@ public class Witch : MonoBehaviour
     public DetectionZone detectionZone;
     public List<Transform> waypoints;
     public float flySpeed = 2f;
-    public float chaseSpeed = 3f; // Add chase speed variable
+    public float chaseSpeed = 3f;
     public float waypointReachedDistance = 0.1f;
     public float attackCooldown = 2f;
     private float lastAttackTime = 0f;

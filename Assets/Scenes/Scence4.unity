@@ -439,7 +439,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1032270153
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7046,6 +7046,14 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2717474754607951965, guid: b37a9ef5be2c40749b10ab252947196b, type: 3}
+      propertyPath: _maxHealth
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: -2717474754607951965, guid: b37a9ef5be2c40749b10ab252947196b, type: 3}
+      propertyPath: isInvincible
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2118336761092964659, guid: b37a9ef5be2c40749b10ab252947196b, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
@@ -7190,7 +7198,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 533269817
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: -10
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7255,7 +7263,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: af6dce5b56f338b4496e114ccdaf3212, type: 3}
   m_Resource: {fileID: 8300000, guid: af6dce5b56f338b4496e114ccdaf3212, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7534,7 +7542,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1032270153
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7859,7 +7867,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1032270153
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -8235,7 +8243,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1032270153
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

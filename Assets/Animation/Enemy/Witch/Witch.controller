@@ -14,7 +14,7 @@ AnimatorStateMachine:
     m_Position: {x: 210, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2002044116871424708}
-    m_Position: {x: 790, y: 370, z: 0}
+    m_Position: {x: 810, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7032403719552869958}
     m_Position: {x: 530, y: 210, z: 0}
@@ -22,9 +22,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_StateMachine: {fileID: 772908080199116960}
     m_Position: {x: 180, y: 210, z: 0}
-  - serializedVersion: 1
-    m_StateMachine: {fileID: -6228886134242981541}
-    m_Position: {x: 0, y: 0, z: 0}
   m_AnyStateTransitions:
   - {fileID: 5475421360106792904}
   - {fileID: -3500091858269208662}
@@ -33,8 +30,6 @@ AnimatorStateMachine:
   - first: {fileID: 772908080199116960}
     second:
     - {fileID: -3420955758593553812}
-  - first: {fileID: -6228886134242981541}
-    second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 560, y: 390, z: 0}
   m_EntryPosition: {x: -100, y: 370, z: 0}
@@ -90,25 +85,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1107 &-6228886134242981541
-AnimatorStateMachine:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: New StateMachine
-  m_ChildStates: []
-  m_ChildStateMachines: []
-  m_AnyStateTransitions: []
-  m_EntryTransitions: []
-  m_StateMachineTransitions: {}
-  m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
-  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 0}
 --- !u!1102 &-4622585316589236440
 AnimatorState:
   serializedVersion: 6
@@ -200,6 +176,20 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-1901750948519528088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce8fb1bbf0dec14abf7919c5fc4fb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
+  fadeDelay: 0.1
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -291,7 +281,8 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -1901750948519528088}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
