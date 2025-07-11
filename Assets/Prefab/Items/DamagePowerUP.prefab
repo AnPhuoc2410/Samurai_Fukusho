@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4664266845781515235}
   - component: {fileID: 5147397269854514456}
   - component: {fileID: -3921930639150553867}
+  - component: {fileID: -9027534236020919863}
   m_Layer: 0
   m_Name: DamagePowerUP
   m_TagString: Untagged
@@ -142,3 +143,23 @@ MonoBehaviour:
   enableFloating: 1
   floatSpeed: 2
   floatAmplitude: 0.5
+--- !u!114 &-9027534236020919863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585888668328475755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906151738c6122a498fd2471862469ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 0}
+  sfxVolume: 1
+  enableBuffDuration: 0
+  buffDuration: 5
+  increaseByPercent: 1
+  increaseValue: 20
+  buffStartSFX: {fileID: 0}
+  buffEndSFX: {fileID: 0}

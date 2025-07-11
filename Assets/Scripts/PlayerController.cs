@@ -265,4 +265,14 @@ public class PlayerController : MonoBehaviour
         }
         return baseDamage;
     }
+
+    /// <summary>
+    /// Log current damage (base and after buff) to console
+    /// </summary>
+    /// <param name="baseDamage">Base damage before buff</param>
+    public void LogCurrentDamage(int baseDamage)
+    {
+        int modified = GetModifiedDamage(baseDamage);
+        Debug.Log($"[PlayerController] Base Damage: {baseDamage}, Buffed Damage: {modified}");
+    }
 }
