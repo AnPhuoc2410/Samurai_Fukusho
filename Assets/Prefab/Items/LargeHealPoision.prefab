@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3946755252924942764}
   - component: {fileID: 5212574531830847540}
   - component: {fileID: 1357750803381759364}
+  - component: {fileID: 8413136053478170039}
   - component: {fileID: 7923580984562518438}
   m_Layer: 0
   m_Name: LargeHealPoision
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 10
   m_Sprite: {fileID: 240850758, guid: 288218a319d290a45a1c84d1fd12bdac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,8 +102,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50708479a3f4dcb47bb558aae94f9212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 0}
+  sfxVolume: 1
   healthAmount: 60
+--- !u!114 &8413136053478170039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109342292166119107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da960a8fd372eca44831f3b5ded7c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpin: 1
   spinRotationSpeed: {x: 0, y: 180, z: 0}
+  enableFloating: 1
+  floatSpeed: 2
+  floatAmplitude: 0.5
 --- !u!58 &7923580984562518438
 CircleCollider2D:
   m_ObjectHideFlags: 0
