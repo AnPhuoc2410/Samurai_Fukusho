@@ -125,6 +125,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 2
+  itemPrefabs: []
+  keyChestMode: 1
+  keyPrefab: {fileID: 0}
+  isManualKeyChest: 0
+  spawnRadius: 1.2
+  maxSpawnTries: 10
+  itemLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5806831427491616894
 GameObject:
   m_ObjectHideFlags: 0

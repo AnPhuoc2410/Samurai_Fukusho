@@ -17,6 +17,33 @@ public class PlayerController : MonoBehaviour
     private Damageable damageable;
     private PlayerHealth playerHealth;
 
+    // --- Defense Buff ---
+    [Header("Defense Buff (Auto)")]
+    [Tooltip("Giảm damage nhận vào theo phần trăm hoặc số lượng cố định. Chỉ lấy giá trị lớn nhất nếu có nhiều buff.")]
+    public bool hasDefenseBuff = false;
+    [Tooltip("Nếu true, giảm damage theo phần trăm. Nếu false, giảm damage theo số lượng cố định.")]
+    public bool defenseByPercent = true;
+    [Tooltip("Giá trị giảm damage (phần trăm hoặc số lượng cố định)")]
+    public float defenseValue = 0f;
+    [Tooltip("SFX khi bắt đầu buff giáp (tùy chọn)")]
+    public AudioClip defenseBuffSFX;
+    [Tooltip("SFX khi kết thúc buff giáp (tùy chọn)")]
+    public AudioClip defenseBuffEndSFX;
+    private AudioSource audioSource;
+
+    // --- Damage Buff ---
+    [Header("Damage Buff (Auto)")]
+    [Tooltip("Tăng damage gây ra theo phần trăm hoặc số lượng cố định. Chỉ lấy giá trị lớn nhất nếu có nhiều buff.")]
+    public bool hasDamageBuff = false;
+    [Tooltip("Nếu true, tăng damage theo phần trăm. Nếu false, tăng damage theo số lượng cố định.")]
+    public bool damageByPercent = true;
+    [Tooltip("Giá trị tăng damage (phần trăm hoặc số lượng cố định)")]
+    public float damageBuffValue = 0f;
+    [Tooltip("SFX khi bắt đầu buff damage (tùy chọn)")]
+    public AudioClip damageBuffSFX;
+    [Tooltip("SFX khi kết thúc buff damage (tùy chọn)")]
+    public AudioClip damageBuffEndSFX;
+
     private Vector2 moveInput;
     private bool isFacingRight = true;
     private bool isMoving = false;
@@ -60,6 +87,7 @@ public class PlayerController : MonoBehaviour
         touchingDirection = GetComponent<TouchingDirection>();
         damageable = GetComponent<Damageable>();
         playerHealth = GetComponent<PlayerHealth>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void OnEnable()
     {
@@ -142,15 +170,108 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
 
+        // --- Áp dụng giảm damage nếu có buff ---
+        int finalDamage = damage;
+        if (hasDefenseBuff)
+        {
+            if (defenseByPercent)
+            {
+                finalDamage = Mathf.CeilToInt(damage * (1f - Mathf.Clamp01(defenseValue / 100f)));
+            }
+            else
+            {
+                finalDamage = Mathf.Max(0, damage - Mathf.RoundToInt(defenseValue));
+            }
+        }
+
         // Trừ máu
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(damage);
+            playerHealth.TakeDamage(finalDamage);
         }
     }
     public void OnDeath()
     {
         cc.offset = new Vector2(0, 0.2f); // Disable collider when dead
         rb.linearVelocity = Vector2.zero;
+    }
+
+    // --- API cho ArmorPickup gọi ---
+    public void ApplyDefenseBuff(bool byPercent, float value, float duration = 0f, AudioClip startSFX = null, AudioClip endSFX = null)
+    {
+        // Nếu đã có buff, chỉ lấy giá trị lớn nhất
+        if (!hasDefenseBuff || value > defenseValue)
+        {
+            hasDefenseBuff = true;
+            defenseByPercent = byPercent;
+            defenseValue = value;
+            if (startSFX != null && audioSource != null)
+                audioSource.PlayOneShot(startSFX);
+            if (duration > 0f)
+                StartCoroutine(RemoveDefenseBuffAfter(duration, endSFX));
+        }
+    }
+    public void RemoveDefenseBuff(AudioClip endSFX = null)
+    {
+        hasDefenseBuff = false;
+        defenseValue = 0f;
+        if (endSFX != null && audioSource != null)
+            audioSource.PlayOneShot(endSFX);
+    }
+    private System.Collections.IEnumerator RemoveDefenseBuffAfter(float duration, AudioClip endSFX)
+    {
+        yield return new WaitForSeconds(duration);
+        RemoveDefenseBuff(endSFX);
+    }
+
+    // --- API cho DamagePickup gọi ---
+    public void ApplyDamageBuff(bool byPercent, float value, float duration = 0f, AudioClip startSFX = null, AudioClip endSFX = null)
+    {
+        // Nếu đã có buff, chỉ lấy giá trị lớn nhất
+        if (!hasDamageBuff || value > damageBuffValue)
+        {
+            hasDamageBuff = true;
+            damageByPercent = byPercent;
+            damageBuffValue = value;
+            if (startSFX != null && audioSource != null)
+                audioSource.PlayOneShot(startSFX);
+            if (duration > 0f)
+                StartCoroutine(RemoveDamageBuffAfter(duration, endSFX));
+        }
+    }
+    public void RemoveDamageBuff(AudioClip endSFX = null)
+    {
+        hasDamageBuff = false;
+        damageBuffValue = 0f;
+        if (endSFX != null && audioSource != null)
+            audioSource.PlayOneShot(endSFX);
+    }
+    private System.Collections.IEnumerator RemoveDamageBuffAfter(float duration, AudioClip endSFX)
+    {
+        yield return new WaitForSeconds(duration);
+        RemoveDamageBuff(endSFX);
+    }
+
+    // --- Hook vào chỗ tính damage khi player tấn công ---
+    public int GetModifiedDamage(int baseDamage)
+    {
+        if (hasDamageBuff)
+        {
+            if (damageByPercent)
+                return Mathf.CeilToInt(baseDamage * (1f + Mathf.Clamp01(damageBuffValue / 100f)));
+            else
+                return baseDamage + Mathf.RoundToInt(damageBuffValue);
+        }
+        return baseDamage;
+    }
+
+    /// <summary>
+    /// Log current damage (base and after buff) to console
+    /// </summary>
+    /// <param name="baseDamage">Base damage before buff</param>
+    public void LogCurrentDamage(int baseDamage)
+    {
+        int modified = GetModifiedDamage(baseDamage);
+        Debug.Log($"[PlayerController] Base Damage: {baseDamage}, Buffed Damage: {modified}");
     }
 }

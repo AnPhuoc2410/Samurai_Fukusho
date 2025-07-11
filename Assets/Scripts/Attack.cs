@@ -20,11 +20,17 @@ public class Attack : MonoBehaviour
 
             bool gotHit = damageable.Hit(attackDamage, deliveredKnockback);
 
+            // Log damage thực tế của player nếu có
+            var playerController = transform.root.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.LogCurrentDamage(attackDamage);
+            }
+
             if (gotHit)
             {
                 Debug.Log($"{collision.name} was hit for {attackDamage} damage.");
             }
-
         }
     }
 }
