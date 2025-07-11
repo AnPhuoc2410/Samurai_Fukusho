@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class PlayerInventory : MonoBehaviour
         } 
     }
 
-    [SerializeField] private List<string> keys = new List<string>();
+    [SerializeField] private List<InventoryItem> items = new List<InventoryItem>();
+
+    [Header("Events")]
+    public UnityEvent OnInventoryChanged;
 
     private void Awake()
     {
@@ -33,64 +37,90 @@ public class PlayerInventory : MonoBehaviour
     }
 
     /// <summary>
+    /// Add an item to the player's inventory
+    /// </summary>
+    public void AddItem(string itemName, Sprite sprite)
+    {
+        InventoryItem newItem = new InventoryItem(itemName, sprite);
+        items.Add(newItem);
+        OnInventoryChanged?.Invoke();
+        Debug.Log($"Added item: {itemName}");
+    }
+
+    /// <summary>
+    /// Add an item to the player's inventory with specific type
+    /// </summary>
+    public void AddItem(string itemName, Sprite sprite, ItemType itemType)
+    {
+        InventoryItem newItem = new InventoryItem(itemName, sprite, itemType);
+        items.Add(newItem);
+        OnInventoryChanged?.Invoke();
+        Debug.Log($"Added {itemType}: {itemName}");
+    }
+
+    /// <summary>
     /// Add a key to the player's inventory
     /// </summary>
-    /// <param name="keyName">Name of the key to add</param>
     public void AddKey(string keyName)
     {
-        if (!keys.Contains(keyName))
+        // Check if key already exists
+        bool keyExists = false;
+        foreach (var item in items)
         {
-            keys.Add(keyName);
-            Debug.Log($"Added key: {keyName}");
+            if (item.itemName == keyName && item.itemType == ItemType.Key)
+            {
+                keyExists = true;
+                break;
+            }
         }
-        else
+
+        if (!keyExists)
         {
-            Debug.Log($"Key {keyName} already exists in inventory");
+            InventoryItem keyItem = new InventoryItem(keyName, null); // No sprite for keys added via AddKey
+            items.Add(keyItem);
+            OnInventoryChanged?.Invoke();
+            Debug.Log($"Added key: {keyName}");
         }
     }
 
     /// <summary>
     /// Check if player has a specific key
     /// </summary>
-    /// <param name="keyName">Name of the key to check</param>
-    /// <returns>True if player has the key, false otherwise</returns>
     public bool HasKey(string keyName)
     {
-        return keys.Contains(keyName);
+        foreach (var item in items)
+        {
+            if (item.itemName == keyName && item.itemType == ItemType.Key)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
-    /// Remove a key from the player's inventory (optional, for consumable keys)
+    /// Remove a key from the player's inventory
     /// </summary>
-    /// <param name="keyName">Name of the key to remove</param>
     public void RemoveKey(string keyName)
     {
-        if (keys.Contains(keyName))
+        for (int i = items.Count - 1; i >= 0; i--)
         {
-            keys.Remove(keyName);
-            Debug.Log($"Removed key: {keyName}");
+            if (items[i].itemName == keyName && items[i].itemType == ItemType.Key)
+            {
+                items.RemoveAt(i);
+                OnInventoryChanged?.Invoke();
+                Debug.Log($"Removed key: {keyName}");
+                return;
+            }
         }
-        else
-        {
-            Debug.Log($"Key {keyName} not found in inventory");
-        }
+        Debug.Log($"Key {keyName} not found in inventory");
     }
 
     /// <summary>
-    /// Get all keys in the inventory
+    /// Get all items in the inventory
     /// </summary>
-    /// <returns>List of all key names</returns>
-    public List<string> GetAllKeys()
+    public List<InventoryItem> GetAllItems()
     {
-        return new List<string>(keys);
-    }
-
-    /// <summary>
-    /// Clear all keys from inventory
-    /// </summary>
-    public void ClearAllKeys()
-    {
-        keys.Clear();
-        Debug.Log("All keys cleared from inventory");
+        return items;
     }
 } 

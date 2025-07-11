@@ -4,6 +4,7 @@ public class KeyPickup : MonoBehaviour
 {
     [Header("Key Settings")]
     [SerializeField] private string keyName = "Level1Key"; // Name of the key (unique identifier)
+    [SerializeField] private string keyDescription = "A mysterious key that opens doors"; // Description of the key
     [SerializeField] private Vector3 spinRotationSpeed = new Vector3(0, 180, 0); // Spin animation
     
     [Header("Visual Settings")]
@@ -42,8 +43,21 @@ public class KeyPickup : MonoBehaviour
             
             if (inventory != null)
             {
+                // Get the sprite from this GameObject's SpriteRenderer
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                Sprite keySprite = spriteRenderer != null ? spriteRenderer.sprite : null;
+                
                 // Add key to inventory
-                inventory.AddKey(keyName);
+                if (keySprite != null)
+                {
+                    inventory.AddItem(keyName, keySprite);
+                }
+                else
+                {
+                    inventory.AddKey(keyName);
+                }
+                
+                Debug.Log($"Player picked up key: {keyName}");
                 
                 // Play pickup sound if there's an AudioSource
                 AudioSource audioSource = GetComponent<AudioSource>();
@@ -66,21 +80,5 @@ public class KeyPickup : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Set the key name (useful for setting up different keys)
-    /// </summary>
-    /// <param name="newKeyName">The new key name</param>
-    public void SetKeyName(string newKeyName)
-    {
-        keyName = newKeyName;
-    }
 
-    /// <summary>
-    /// Get the current key name
-    /// </summary>
-    /// <returns>The key name</returns>
-    public string GetKeyName()
-    {
-        return keyName;
-    }
 } 

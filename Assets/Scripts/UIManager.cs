@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Text Prefabs")]
     public GameObject damageTextPrefab;
     public GameObject healTextPrefab;
 
+    [Header("UI References")]
     public Canvas gameCanvas;
+    public InventoryDisplay InventoryDisplay;
+
+    [Header("Quick Access")]
+    [SerializeField] private bool enableInventoryQuickAccess = true;
 
     private void Awake()
     {
         gameCanvas = FindFirstObjectByType<Canvas>();
+        
+        // Find InventoryDisplay if not assigned
+        if (InventoryDisplay == null)
+        {
+            InventoryDisplay = FindFirstObjectByType<InventoryDisplay>();
+        }
     }
 
     private void OnEnable()
@@ -19,6 +31,7 @@ public class UIManager : MonoBehaviour
         CharacterEvents.characterDamaged += CharacterTookDamage;
         CharacterEvents.characterHealed += CharacterHealed;
     }
+    
     private void OnDisable()
     {
         CharacterEvents.characterDamaged -= CharacterTookDamage;
