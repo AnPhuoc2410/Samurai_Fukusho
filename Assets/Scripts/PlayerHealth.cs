@@ -3,12 +3,13 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int maxHealth;
+    [SerializeField] int maxHealth = 100;
     int currentHealth;
 
     public HealthBarScript healthBar;
-
     public UnityEvent Ondeath;
+
+    private GameManager gameManager;
 
     private void OnEnable()
     {
@@ -19,26 +20,33 @@ public class PlayerHealth : MonoBehaviour
     {
         Ondeath.RemoveListener(Death);
     }
+
     private void Start()
     {
         currentHealth = maxHealth;
         healthBar.UpdateBar(currentHealth, maxHealth);
+
+        gameManager = FindObjectOfType<GameManager>(); // Tự động tìm GameManager
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             Ondeath.Invoke();
         }
-        healthBar.UpdateBar(currentHealth, maxHealth);
 
+        healthBar.UpdateBar(currentHealth, maxHealth);
     }
 
     public void Death()
     {
-        Destroy(gameObject);
+        if (gameManager != null)
+        {
+            gameManager.GameOver();
+        }
     }
 }

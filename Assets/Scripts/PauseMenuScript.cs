@@ -59,7 +59,7 @@ public class PauseMenuController : MonoBehaviour
 
     void ExitGame()
     {
-        Debug.Log("Thoát game...");
-        Application.Quit();
+        Time.timeScale = 1f; // Trả lại thời gian bình thường trước khi chuyển scene
+        SceneManager.LoadScene("MainMenu");
     }
 }

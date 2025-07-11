@@ -1,0 +1,43 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameManager : MonoBehaviour
+{
+    public GameObject gameOverPanel;
+
+    private bool isGameOver = false;
+
+    private void Start()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+    }
+
+    public void GameOver()
+    {
+        if (isGameOver) return;
+
+        isGameOver = true;
+        Time.timeScale = 0f;
+        gameOverPanel.SetActive(true);
+    }
+
+    public void Replay()
+    {
+        Time.timeScale = 1f; // khôi phục lại tốc độ game
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GoToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu"); // nhớ thêm scene "MainMenu" vào Build Settings
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+}
