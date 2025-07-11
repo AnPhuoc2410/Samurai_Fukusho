@@ -1,23 +1,20 @@
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour
+namespace InteractiveItems
 {
-    public int healthAmount = 20; // Amount of health to restore
-    public Vector3 spinRotationSpeed = new Vector3(0, 180, 0);
-
-    private void Update()
+    [AddComponentMenu("Items/Health Pickup")]
+    [Tooltip("Gắn script này vào prefab item hồi máu. Khi player nhặt sẽ tự động hồi máu cho player.")]
+    public class HealthPickup : PickupBaseLogic
     {
-        transform.eulerAngles += spinRotationSpeed * Time.deltaTime; // Spin the health pickup
-    }
+        [Header("Health Settings")]
+        [Tooltip("Lượng máu sẽ hồi cho player khi nhặt item này.")]
+        public int healthAmount = 20;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Damageable damageable = collision.GetComponent<Damageable>();
-
-        if (damageable)
+        protected override void OnPickupEffect(Collider2D player)
         {
-            if (!damageable.Heal(healthAmount)) return;
-            Destroy(gameObject); // Destroy the health pickup after use
+            Damageable damageable = player.GetComponent<Damageable>();
+            if (damageable)
+                damageable.Heal(healthAmount);
         }
     }
 }

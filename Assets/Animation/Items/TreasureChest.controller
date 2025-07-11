@@ -18,18 +18,6 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 67736c82140d18e479da55fcdef9d811, type: 3}
     volume: 1
     delay: 0
-  - clip: {fileID: 8300000, guid: c82e9b932649e844891c990522072d32, type: 3}
-    volume: 1
-    delay: 0
-  - clip: {fileID: 8300000, guid: 6fc7584d779147342a5205dcf47e4ace, type: 3}
-    volume: 1
-    delay: 0
-  - clip: {fileID: 8300000, guid: 41786289bf484ce4aae36e3cad59e1c4, type: 3}
-    volume: 1
-    delay: 0
-  - clip: {fileID: 8300000, guid: e81081e64062f2d4e875cd502762f5e1, type: 3}
-    volume: 1
-    delay: 0
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0

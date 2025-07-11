@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5898445003372447590}
   - component: {fileID: 4244908203071326622}
   - component: {fileID: 2776426077218058511}
+  - component: {fileID: 7353034309153203727}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1854440963, guid: 288218a319d290a45a1c84d1fd12bdac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,8 +138,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a394f7bd166b24b9ab44ae4a315aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 0}
+  sfxVolume: 1
   keyName: Level1Key
+--- !u!114 &7353034309153203727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280827411121494812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da960a8fd372eca44831f3b5ded7c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpin: 1
   spinRotationSpeed: {x: 0, y: 180, z: 0}
-  hasFloatingAnimation: 1
+  enableFloating: 1
   floatSpeed: 2
   floatAmplitude: 0.5
