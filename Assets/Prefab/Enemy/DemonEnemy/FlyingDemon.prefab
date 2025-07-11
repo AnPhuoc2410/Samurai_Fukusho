@@ -31,37 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2750754586846521289}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4554539968999072459
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8827194685097527249}
-  m_Layer: 8
-  m_Name: ProjectAttack (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8827194685097527249
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4554539968999072459}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.15, y: -1.13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2750754586846521289}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5752741046845537991
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,8 +114,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 9.95, y: -0.32654762}
-  m_Size: {x: 8.234104, y: 8.234104}
+  m_Offset: {x: 8.256432, y: 0.01843834}
+  m_Size: {x: 4.846966, y: 4.909691}
   m_Direction: 0
 --- !u!1 &8920016513327105599
 GameObject:
@@ -186,7 +155,6 @@ Transform:
   m_Children:
   - {fileID: 2686596811076467578}
   - {fileID: 9090063299956874815}
-  - {fileID: 8827194685097527249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6070570757214126518
