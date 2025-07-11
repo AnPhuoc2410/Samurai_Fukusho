@@ -5,25 +5,33 @@ namespace ChestSystem
 {
     public class InteractableChest : PressE_ToOpen
     {
-        [Header("Chest Items")]
-        [Tooltip("Các prefab item thường sẽ spawn khi mở rương (tối đa 5)")]
-        public List<GameObject> itemPrefabs = new List<GameObject>(5);
-
-        [Header("Key Chest Option")]
-        [Tooltip("Chọn chế độ spawn chìa khóa: None = không, Random = random khi scene load, Manual = chỉ định rương này chứa chìa khóa")]
-        public KeyChestMode keyChestMode = KeyChestMode.Random;
-        public GameObject keyPrefab; // Prefab chìa khóa (nếu muốn chỉ định riêng)
-        [Tooltip("Chỉ tick nếu muốn rương này chắc chắn chứa chìa khóa (chỉ dùng khi chọn Manual)")]
-        public bool isManualKeyChest = false;
-
         [Header("Spawn Settings")]
+        [Tooltip("Bán kính spawn item quanh rương.")]
         public float spawnRadius = 1.2f;
+        [Tooltip("Số lần thử tránh overlap khi spawn item.")]
         public int maxSpawnTries = 10;
+        [Tooltip("LayerMask dùng để kiểm tra va chạm khi spawn item.")]
         public LayerMask itemLayerMask;
 
-        private bool hasKey = false;
+        [Header("Chest Items")]
+        [Tooltip("Các prefab item sẽ spawn khi mở rương. Sẽ được random và gán tự động bởi ChestKeyRandomizer.")]
+        public List<GameObject> itemPrefabs = new List<GameObject>(5);
 
-        public enum KeyChestMode { None, Random, Manual }
+        [Header("Override Item Count (Optional)")]
+        [Tooltip("Bật để override số lượng item min/max cho rương này, thay vì dùng giá trị global.")]
+        public bool overrideItemCount = false;
+        [Tooltip("Số lượng item tối thiểu cho rương này (chỉ dùng khi overrideItemCount = true)")]
+        public int minItemsOverride = 1;
+        [Tooltip("Số lượng item tối đa cho rương này (chỉ dùng khi overrideItemCount = true)")]
+        public int maxItemsOverride = 5;
+
+        [Header("Auto Destroy (Set by Randomizer)")]
+        [Tooltip("Bật nếu item spawn ra từ rương này sẽ tự hủy sau một thời gian (set tự động bởi ChestKeyRandomizer)")]
+        public bool enableAutoDestroy = false;
+        [Tooltip("Thời gian (giây) trước khi item tự hủy (set tự động bởi ChestKeyRandomizer)")]
+        public float autoDestroyTime = 20f;
+
+        private bool hasKey = false;
 
         protected override void OnInteract()
         {
@@ -39,7 +47,6 @@ namespace ChestSystem
             }
             else
             {
-                // Nếu đã đủ 5 item, random 1 vị trí để thay thế
                 int idx = Random.Range(0, itemPrefabs.Count);
                 itemPrefabs[idx] = keyPrefabToAdd;
             }
@@ -75,8 +82,22 @@ namespace ChestSystem
                     tries++;
                 }
                 usedPositions.Add(spawnPos);
-                Instantiate(prefab, spawnPos, Quaternion.identity);
+                var go = Instantiate(prefab, spawnPos, Quaternion.identity);
+                if (enableAutoDestroy)
+                {
+                    var autoDestroy = go.AddComponent<ItemAutoDestroy>();
+                    autoDestroy.lifetime = autoDestroyTime;
+                }
             }
         }
+    }
+
+    [AddComponentMenu("Chest System/Item Auto Destroy")]
+    [Tooltip("Gắn script này vào item để tự hủy sau một thời gian. Sẽ được add tự động khi spawn nếu enableAutoDestroy.")]
+    public class ItemAutoDestroy : MonoBehaviour
+    {
+        [Tooltip("Thời gian (giây) trước khi item tự hủy.")]
+        public float lifetime = 20f;
+        private void Start() { Destroy(gameObject, lifetime); }
     }
 }

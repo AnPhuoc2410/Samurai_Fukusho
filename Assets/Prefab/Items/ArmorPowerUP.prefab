@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8323869490716566491}
   - component: {fileID: 6511532401591084931}
   - component: {fileID: 6160163888226194724}
+  - component: {fileID: 2191033866315922316}
   m_Layer: 0
   m_Name: ArmorPowerUP
   m_TagString: Untagged
@@ -124,3 +125,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.29166666
+--- !u!114 &2191033866315922316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311635651085736819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da960a8fd372eca44831f3b5ded7c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpin: 1
+  spinRotationSpeed: {x: 0, y: 180, z: 0}
+  enableFloating: 1
+  floatSpeed: 2
+  floatAmplitude: 0.5

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2446198549467492547}
   - component: {fileID: 4664266845781515235}
   - component: {fileID: 5147397269854514456}
+  - component: {fileID: -3921930639150553867}
   m_Layer: 0
   m_Name: DamagePowerUP
   m_TagString: Untagged
@@ -124,3 +125,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.29166666
+--- !u!114 &-3921930639150553867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585888668328475755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da960a8fd372eca44831f3b5ded7c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpin: 1
+  spinRotationSpeed: {x: 0, y: 180, z: 0}
+  enableFloating: 1
+  floatSpeed: 2
+  floatAmplitude: 0.5
