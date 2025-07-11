@@ -49,8 +49,6 @@ namespace ChestSystem
         private void SpawnAllItems()
         {
             Vector2 chestPos = transform.position;
-            float angleStep = 360f / Mathf.Max(1, itemPrefabs.Count);
-            float angleOffset = Random.Range(0f, 360f);
             List<Vector2> usedPositions = new List<Vector2>();
 
             for (int i = 0; i < itemPrefabs.Count; i++)
@@ -61,9 +59,9 @@ namespace ChestSystem
                 int tries = 0;
                 while (!found && tries < maxSpawnTries)
                 {
-                    float angle = angleOffset + angleStep * i + Random.Range(-10f, 10f);
-                    Vector2 offset = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * Random.Range(spawnRadius * 0.7f, spawnRadius);
-                    Vector2 candidate = chestPos + offset;
+                    float xOffset = Random.Range(-spawnRadius, spawnRadius);
+                    float yOffset = Random.Range(spawnRadius * 0.5f, spawnRadius); // luôn dương, chỉ phía trên
+                    Vector2 candidate = chestPos + new Vector2(xOffset, yOffset);
                     bool overlap = false;
                     foreach (var pos in usedPositions)
                     {

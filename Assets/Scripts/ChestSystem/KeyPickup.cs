@@ -1,29 +1,25 @@
 using UnityEngine;
+using InteractiveItems;
 
-namespace ChestSystem
+[AddComponentMenu("Items/Key Pickup")]
+[Tooltip("Gắn script này vào prefab chìa khóa. Khi player nhặt sẽ tự động add key vào PlayerInventory.")]
+public class KeyPickup : PickupBaseLogic
 {
-    public class KeyPickup : MonoBehaviour
+    [Header("Key Settings")]
+    [Tooltip("Tên định danh của chìa khóa sẽ được add vào PlayerInventory. Nếu chỉ có 1 loại chìa khóa, giữ nguyên mặc định.")]
+    [SerializeField] private string keyName = "Level1Key";
+
+    protected override void OnPickupEffect(Collider2D player)
     {
-        [Tooltip("Tên chìa khóa sẽ add vào PlayerInventory")] public string keyName = "LevelGateKey";
-        [Tooltip("SFX khi nhặt chìa khóa (tùy chọn)")] public AudioClip pickupSFX;
-        [Tooltip("Âm lượng SFX")] public float sfxVolume = 1f;
-
-        private void OnTriggerEnter2D(Collider2D other)
+        PlayerInventory inventory = PlayerInventory.Instance;
+        if (inventory != null)
         {
-            if (other.CompareTag("Player"))
-            {
-                // Add key to inventory
-                PlayerInventory.Instance.AddKey(keyName);
-
-                // Play SFX nếu có
-                if (pickupSFX != null)
-                {
-                    AudioSource.PlayClipAtPoint(pickupSFX, transform.position, sfxVolume);
-                }
-
-                // Hủy object
-                Destroy(gameObject);
-            }
+            inventory.AddKey(keyName);
+        }
+        else
+        {
+            Debug.LogError("PlayerInventory instance not found! Make sure PlayerInventory is attached to a GameObject in the scene.");
         }
     }
-} 
+}
+// Để có hiệu ứng spin/floating, hãy gán thêm script PickupVisualEffect vào prefab item này. 
