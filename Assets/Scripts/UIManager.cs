@@ -12,9 +12,6 @@ public class UIManager : MonoBehaviour
     public Canvas gameCanvas;
     public InventoryDisplay InventoryDisplay;
 
-    [Header("Quick Access")]
-    [SerializeField] private bool enableInventoryQuickAccess = true;
-
     private void Awake()
     {
         gameCanvas = FindFirstObjectByType<Canvas>();
