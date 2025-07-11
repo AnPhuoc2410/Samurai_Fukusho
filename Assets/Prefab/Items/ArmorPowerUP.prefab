@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6511532401591084931}
   - component: {fileID: 6160163888226194724}
   - component: {fileID: 2191033866315922316}
+  - component: {fileID: 7346860266180148940}
   m_Layer: 0
   m_Name: ArmorPowerUP
   m_TagString: Untagged
@@ -142,3 +143,23 @@ MonoBehaviour:
   enableFloating: 1
   floatSpeed: 2
   floatAmplitude: 0.5
+--- !u!114 &7346860266180148940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311635651085736819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106c7866a03cfe14cb5d632595c232b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 0}
+  sfxVolume: 1
+  enableBuffDuration: 0
+  buffDuration: 5
+  reduceByPercent: 1
+  reduceValue: 50
+  buffStartSFX: {fileID: 0}
+  buffEndSFX: {fileID: 0}
