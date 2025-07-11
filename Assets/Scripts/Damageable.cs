@@ -77,7 +77,7 @@ public class Damageable : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-
+        _currentHealth = _maxHealth;
     }
     private void Update()
     {

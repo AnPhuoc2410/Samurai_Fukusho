@@ -73,30 +73,41 @@ public class Witch : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (damageable.IsAlive)
+        if (!damageable.IsAlive) return;
+
+        if (isKnockedBack)
         {
-            if (CanMove)
+            knockbackTimer += Time.fixedDeltaTime;
+            if (knockbackTimer >= knockbackRecoveryTime)
             {
-                if (HasTarget)
-                {
-                    if (CanAttack())
-                    {
-                        Attack();
-                    }
-                    else
-                    {
-                        Chase(); // Add chase behavior
-                    }
-                }
-                else
-                {
-                    Flight();
-                }
+                isKnockedBack = false;
+                knockbackTimer = 0f;
+                CanMove = true;
+            }
+
+            return;
+        }
+
+        if (!CanMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        if (HasTarget)
+        {
+            if (CanAttack())
+            {
+                Attack();
             }
             else
             {
-                rb.linearVelocity = Vector3.zero;
+                Chase();
             }
+        }
+        else
+        {
+            Flight();
         }
     }
 
@@ -140,17 +151,28 @@ public class Witch : MonoBehaviour
 
         if (player != null)
         {
-            // Only chase horizontally, ignore vertical difference (no jumping)
-            Vector2 directionToPlayer = new Vector2(
-                player.position.x - transform.position.x,
-                0
-            ).normalized;
+            float distanceX = player.position.x - transform.position.x;
 
-            // Move towards player with chase speed (horizontal only)
-            rb.linearVelocity = new Vector2(directionToPlayer.x * chaseSpeed, rb.linearVelocity.y);
+            // Avoid flipping if the player is extremely close (to prevent jitter/glitch)
+            if (Mathf.Abs(distanceX) > 0.05f)
+            {
+                // Only chase horizontally, ignore vertical difference (no jumping)
+                Vector2 directionToPlayer = new Vector2(
+                    distanceX,
+                    0
+                ).normalized;
 
-            // Update witch's facing direction
-            UpdateDirection();
+                // Move towards player with chase speed (horizontal only)
+                rb.linearVelocity = new Vector2(directionToPlayer.x * chaseSpeed, rb.linearVelocity.y);
+
+                // Update witch's facing direction
+                UpdateDirection();
+            }
+            else
+            {
+                // Stop horizontal movement and keep facing direction unchanged
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            }
         }
     }
 
@@ -181,5 +203,40 @@ public class Witch : MonoBehaviour
         CanMove = false;
         rb.gravityScale = 2f;
         rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+    }
+
+    public float knockbackRecoveryTime = 0.5f;  // Time before witch can move again after being hit
+    public float knockbackForce = 5f;  // Force of knockback
+    private bool isKnockedBack = false;
+    private float knockbackTimer = 0f;
+
+    public void OnHit(int damage, Vector2 knockback)
+    {
+        // Disable movement temporarily
+        CanMove = false;
+        isKnockedBack = true;
+        knockbackTimer = 0f;
+
+        // Apply knockback force
+        Vector2 knockbackDirection = new Vector2(
+            Mathf.Sign(knockback.x) * knockbackForce,
+            knockbackForce * 0.5f
+        );
+        rb.linearVelocity = knockbackDirection;
+
+        // Apply damage
+        if (damageable != null)
+        {
+            damageable.Hit(damage, knockback);
+
+            if (!damageable.IsAlive)
+            {
+                OnDeath();
+            }
+        }
+
+        // Play hit animation if you have one
+        animator.SetTrigger("hit");
+        Debug.Log($"{gameObject.name} was hit for {damage} damage.");
     }
 }
