@@ -159,6 +159,7 @@ MonoBehaviour:
   detectionZone: {fileID: 1081102438720141373}
   waypoints: []
   flySpeed: 2
+  chaseSpeed: 3
   waypointReachedDistance: 0.1
   attackCooldown: 2
   _hasTarget: 0
@@ -180,7 +181,7 @@ MonoBehaviour:
   damageableDeath:
     m_PersistentCalls:
       m_Calls: []
-  _maxHealth: 250
+  _maxHealth: 500
   _isAlive: 1
   isInvincible: 0
   timeSinceHit: 0
