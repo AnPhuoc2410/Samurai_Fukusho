@@ -97,7 +97,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            cc.offset = new Vector2(0, 0.2f); // Disable collider offset when dead
             isMoving = false;
         }
     }

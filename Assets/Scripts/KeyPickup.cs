@@ -4,7 +4,6 @@ public class KeyPickup : MonoBehaviour
 {
     [Header("Key Settings")]
     [SerializeField] private string keyName = "Level1Key"; // Name of the key (unique identifier)
-    [SerializeField] private string keyDescription = "A mysterious key that opens doors"; // Description of the key
     [SerializeField] private Vector3 spinRotationSpeed = new Vector3(0, 180, 0); // Spin animation
     
     [Header("Visual Settings")]

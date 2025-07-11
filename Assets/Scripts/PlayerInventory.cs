@@ -29,10 +29,21 @@ public class PlayerInventory : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            Debug.Log("PlayerInventory singleton created and marked as DontDestroyOnLoad");
         }
         else if (instance != this)
         {
+            Debug.Log("Duplicate PlayerInventory found, destroying it");
             Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        // Ensure this instance is properly registered
+        if (instance == this)
+        {
+            Debug.Log($"PlayerInventory started with {items.Count} items");
         }
     }
 
