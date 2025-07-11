@@ -22,4 +22,3 @@ public class KeyPickup : PickupBaseLogic
         }
     }
 }
-// Để có hiệu ứng spin/floating, hãy gán thêm script PickupVisualEffect vào prefab item này. 
