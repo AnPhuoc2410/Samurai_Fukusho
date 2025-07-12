@@ -58,6 +58,24 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-6425731606008723676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255d51b9eb3b1984a9d381457d2561b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundToPlay: {fileID: 8300000, guid: 96dfd6da7108cc245af0e47a9b3d1fe8, type: 3}
+  volume: 20
+  playOnEnter: 1
+  playOnExit: 0
+  playAfterDelay: 0
+  playDelay: 0.25
 --- !u!1102 &-6297824323450965295
 AnimatorState:
   serializedVersion: 6
@@ -311,6 +329,7 @@ AnimatorState:
   m_Transitions: []
   m_StateMachineBehaviours:
   - {fileID: -1901750948519528088}
+  - {fileID: -6425731606008723676}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -390,7 +409,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3236194892416830472}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 8148796443376137824}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -405,3 +425,33 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &8148796443376137824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad08db2b7cbd1d4aa554da9f283e6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomPlay: 1
+  counterMode: 0
+  soundsToPlay:
+  - clip: {fileID: 8300000, guid: 39a8efe26fc67474a9d338507ff50e67, type: 3}
+    volume: 3
+    delay: 0
+  - clip: {fileID: 8300000, guid: 4dee1cdc937f37243b4d68d5d8a9180f, type: 3}
+    volume: 3
+    delay: 0
+  - clip: {fileID: 8300000, guid: 0b0617fc6ba56bc489fb5dc1c88b024d, type: 3}
+    volume: 3
+    delay: 0
+  - clip: {fileID: 8300000, guid: 5907312b998787c47b552960120812bb, type: 3}
+    volume: 3
+    delay: 0
+  playOnEnter: 1
+  playOnExit: 0
+  playAfterDelay: 0
