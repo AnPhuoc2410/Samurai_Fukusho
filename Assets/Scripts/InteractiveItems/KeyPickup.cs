@@ -14,7 +14,19 @@ public class KeyPickup : PickupBaseLogic
         PlayerInventory inventory = PlayerInventory.Instance;
         if (inventory != null)
         {
-            inventory.AddKey(keyName);
+            // Lấy sprite từ SpriteRenderer
+            Sprite keySprite = GetComponent<SpriteRenderer>()?.sprite;
+            
+            // Thêm key vào inventory với sprite
+            if (keySprite != null)
+            {
+                inventory.AddItem(keyName, keySprite, ItemType.Key);
+            }
+            else
+            {
+                // Fallback nếu không có sprite
+                inventory.AddKey(keyName);
+            }
         }
         else
         {

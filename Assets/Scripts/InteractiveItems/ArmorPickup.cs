@@ -15,23 +15,57 @@ namespace InteractiveItems
         public AudioClip buffStartSFX;
         [Tooltip("SFX khi kết thúc buff giáp (tùy chọn)")]
         public AudioClip buffEndSFX;
+        
+        [Header("Item Settings")]
+        [Tooltip("Tên hiển thị của armor trong inventory.")]
+        public string itemName = "Armor Boost";
 
         protected override void OnPickupEffect(Collider2D player)
         {
+            // Áp dụng buff giáp
             var pc = player.GetComponent<PlayerController>();
             if (pc != null)
             {
                 pc.ApplyDefenseBuff(reduceByPercent, reduceValue, 0f, buffStartSFX, buffEndSFX);
             }
+            
+            // Thêm vào inventory
+            PlayerInventory inventory = PlayerInventory.Instance;
+            if (inventory != null)
+            {
+                // Lấy sprite từ SpriteRenderer
+                Sprite itemSprite = GetComponent<SpriteRenderer>()?.sprite;
+                
+                if (itemSprite != null)
+                {
+                    inventory.AddItem(itemName, itemSprite, ItemType.Misc);
+                }
+            }
         }
+        
         protected override void OnBuffStart(Collider2D player)
         {
+            // Áp dụng buff giáp tạm thời
             var pc = player.GetComponent<PlayerController>();
             if (pc != null)
             {
                 pc.ApplyDefenseBuff(reduceByPercent, reduceValue, buffDuration, buffStartSFX, buffEndSFX);
             }
+            
+            // Thêm vào inventory
+            PlayerInventory inventory = PlayerInventory.Instance;
+            if (inventory != null)
+            {
+                // Lấy sprite từ SpriteRenderer
+                Sprite itemSprite = GetComponent<SpriteRenderer>()?.sprite;
+                
+                if (itemSprite != null)
+                {
+                    inventory.AddItem(itemName, itemSprite, ItemType.Misc);
+                }
+            }
         }
+        
         protected override void OnBuffEnd(GameObject playerObj)
         {
             var pc = playerObj.GetComponent<PlayerController>();
