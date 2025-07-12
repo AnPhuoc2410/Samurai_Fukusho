@@ -25,17 +25,51 @@ public class ParalaxEffect : MonoBehaviour
     // Start được gọi một lần trước khi thực thi Update đầu tiên sau khi MonoBehaviour được tạo
     void Start()
     {
+        InitializeParallax();
+    }
+
+    public void InitializeParallax()
+    {
         startingPosition = transform.position;
         startingZ = transform.position.z;
+        
+        // Auto-find camera if not assigned
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+        
+        // Auto-find player if not assigned
+        if (followTarget == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                followTarget = player.transform;
+                Debug.Log($"ParalaxEffect on {gameObject.name} auto-found player target");
+            }
+        }
     }
 
     // Update được gọi một lần mỗi frame
     void Update()
     {
+        // Kiểm tra nếu thiếu references
+        if (cam == null || followTarget == null)
+        {
+            return;
+        }
+
         // Khi mục tiêu di chuyển, di chuyển đối tượng parallax cùng khoảng cách nhân với một hệ số
         Vector2 newPosition = startingPosition + camMoveSinceStart * parallaxFactor;
 
         // Vị trí X/Y thay đổi dựa trên tốc độ di chuyển của mục tiêu nhân với hệ số parallax, nhưng Z giữ nguyên
         transform.position = new Vector3(newPosition.x, newPosition.y, startingZ);
+    }
+
+    // Public method để reset parallax khi scene thay đổi
+    public void ResetParallax()
+    {
+        InitializeParallax();
     }
 }

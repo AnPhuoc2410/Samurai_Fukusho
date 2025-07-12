@@ -8,11 +8,9 @@ public class LevelGate : PressE_ToOpen
     [SerializeField] private string targetSceneName = "Scence2"; // Scene to load when gate opens
     [SerializeField] private bool consumeKey = false; // Whether to remove key from inventory after use
     
-    [Header("Visual Feedback")]
-    [SerializeField] private GameObject lockedIndicator; // UI element to show gate is locked
-    [SerializeField] private GameObject unlockedIndicator; // UI element to show gate is unlocked
-    [SerializeField] private Color lockedColor = Color.red;
-    [SerializeField] private Color unlockedColor = Color.green;
+    [Header("Player Spawn Settings")]
+    [SerializeField] private Vector3 playerSpawnPosition = Vector3.zero; // Position to spawn player in target scene
+    [SerializeField] private bool useCustomSpawnPosition = false; // Whether to use custom spawn position
     
     [Header("Audio")]
     [SerializeField] private AudioClip lockedSound; // Sound when trying to open without key
@@ -32,9 +30,6 @@ public class LevelGate : PressE_ToOpen
         
         // Check for key initially
         CheckForKey();
-        
-        // Update visual state
-        UpdateVisualState();
     }
 
     protected override void Update()
@@ -45,12 +40,6 @@ public class LevelGate : PressE_ToOpen
         // Check for key state change
         bool previousKeyState = hasRequiredKey;
         CheckForKey();
-        
-        // Update visuals if key state changed
-        if (previousKeyState != hasRequiredKey)
-        {
-            UpdateVisualState();
-        }
 
         float distance = Vector2.Distance(player.transform.position, transform.position);
 
@@ -71,25 +60,10 @@ public class LevelGate : PressE_ToOpen
     {
         PlayerInventory inventory = PlayerInventory.Instance;
         hasRequiredKey = inventory != null && inventory.HasKey(requiredKeyName);
-    }
-
-    private void UpdateVisualState()
-    {
-        // Update sprite color
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = hasRequiredKey ? unlockedColor : lockedColor;
-        }
         
-        // Update UI indicators
-        if (lockedIndicator != null)
+        if (inventory == null)
         {
-            lockedIndicator.SetActive(!hasRequiredKey);
-        }
-        
-        if (unlockedIndicator != null)
-        {
-            unlockedIndicator.SetActive(hasRequiredKey);
+            Debug.LogWarning("PlayerInventory instance not found when checking for key!");
         }
     }
 
@@ -145,7 +119,16 @@ public class LevelGate : PressE_ToOpen
         if (!string.IsNullOrEmpty(targetSceneName))
         {
             Debug.Log($"Loading scene: {targetSceneName}");
-            SceneManager.LoadScene(targetSceneName);
+            
+            // Use SceneTransitionManager for proper scene transition with spawn position
+            if (useCustomSpawnPosition)
+            {
+                SceneTransitionManager.Instance.TransitionToScene(targetSceneName, playerSpawnPosition, true);
+            }
+            else
+            {
+                SceneTransitionManager.Instance.TransitionToScene(targetSceneName);
+            }
         }
         else
         {
@@ -161,7 +144,6 @@ public class LevelGate : PressE_ToOpen
     {
         requiredKeyName = keyName;
         CheckForKey();
-        UpdateVisualState();
     }
 
     /// <summary>
@@ -171,6 +153,17 @@ public class LevelGate : PressE_ToOpen
     public void SetTargetScene(string sceneName)
     {
         targetSceneName = sceneName;
+    }
+
+    /// <summary>
+    /// Set the player spawn position for the target scene
+    /// </summary>
+    /// <param name="spawnPosition">Position to spawn player</param>
+    /// <param name="useCustomSpawn">Whether to use the custom spawn position</param>
+    public void SetPlayerSpawnPosition(Vector3 spawnPosition, bool useCustomSpawn = true)
+    {
+        playerSpawnPosition = spawnPosition;
+        useCustomSpawnPosition = useCustomSpawn;
     }
 
     /// <summary>
