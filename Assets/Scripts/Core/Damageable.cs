@@ -9,6 +9,7 @@ public class Damageable : MonoBehaviour
 
     [SerializeField]
     private int _maxHealth = 100;
+    [SerializeField]
     private int _currentHealth = 100;
     [SerializeField]
     private bool _isAlive = true;
