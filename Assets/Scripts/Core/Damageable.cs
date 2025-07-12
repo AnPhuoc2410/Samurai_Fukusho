@@ -16,6 +16,11 @@ public class Damageable : MonoBehaviour
     [SerializeField]
     private bool isInvincible = false;
 
+    // Player-specific fields
+    [SerializeField] private bool isPlayer = false;
+    [SerializeField] private HealthBarScript healthBar;
+    private GameManager gameManager;
+
     public float timeSinceHit = 0f;
     public float invincibleTimer = 0.25f;
 
@@ -35,6 +40,13 @@ public class Damageable : MonoBehaviour
         set
         {
             _currentHealth = value;
+            
+            // Update health bar for player
+            if (isPlayer && healthBar != null)
+            {
+                healthBar.UpdateBar(_currentHealth, _maxHealth);
+            }
+            
             if (_currentHealth <= 0)
             {
                 IsAlive = false;
@@ -55,6 +67,12 @@ public class Damageable : MonoBehaviour
                 damageableDeath?.Invoke();
                 animator.SetBool(AnimationStrings.isAlive, false);
                 LockVelocity = true;
+                
+                // Handle player death
+                if (isPlayer)
+                {
+                    HandlePlayerDeath();
+                }
             }
             else
             {
@@ -62,7 +80,6 @@ public class Damageable : MonoBehaviour
             }
         }
     }
-
 
     public bool LockVelocity
     {
@@ -75,11 +92,27 @@ public class Damageable : MonoBehaviour
             animator.SetBool(AnimationStrings.lockVelocity, value);
         }
     }
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
         _currentHealth = _maxHealth;
     }
+    
+    private void Start()
+    {
+        // Initialize player-specific components
+        if (isPlayer)
+        {
+            if (healthBar != null)
+            {
+                healthBar.UpdateBar(_currentHealth, _maxHealth);
+            }
+            
+            gameManager = FindFirstObjectByType<GameManager>();
+        }
+    }
+    
     private void Update()
     {
         if (isInvincible)
@@ -95,22 +128,52 @@ public class Damageable : MonoBehaviour
             }
         }
     }
+    
     public bool Hit(int damage, Vector2 knockback)
     {
         if (IsAlive && !isInvincible)
         {
-            Health -= damage;
+            // Apply defense buff for player
+            int finalDamage = damage;
+            if (isPlayer)
+            {
+                finalDamage = GetModifiedDamageForPlayer(damage);
+            }
+            
+            Health -= finalDamage;
             isInvincible = true;
 
             animator.SetTrigger(AnimationStrings.hitTrigger);
             LockVelocity = true;
             damageableHit?.Invoke(damage, knockback);
-            CharacterEvents.characterDamaged?.Invoke(gameObject, damage);
+            CharacterEvents.characterDamaged?.Invoke(gameObject, finalDamage);
 
             return true;
         }
         return false;
     }
+    
+    private int GetModifiedDamageForPlayer(int baseDamage)
+    {
+        if (!isPlayer) return baseDamage;
+        
+        // Get PlayerController component to access defense buff
+        PlayerController playerController = GetComponent<PlayerController>();
+        if (playerController != null && playerController.hasDefenseBuff)
+        {
+            if (playerController.defenseByPercent)
+            {
+                return Mathf.CeilToInt(baseDamage * (1f - Mathf.Clamp01(playerController.defenseValue / 100f)));
+            }
+            else
+            {
+                return Mathf.Max(0, baseDamage - Mathf.RoundToInt(playerController.defenseValue));
+            }
+        }
+        
+        return baseDamage;
+    }
+    
     public bool Heal(int amount)
     {
         if (IsAlive && Health < MaxHealth)
@@ -124,5 +187,37 @@ public class Damageable : MonoBehaviour
         }
         return false; // Healing failed  
     }
-
+    
+    // Player-specific methods
+    public void TakeDamage(int damage)
+    {
+        if (isPlayer)
+        {
+            Health -= damage;
+            
+            if (Health <= 0)
+            {
+                Health = 0;
+                // IsAlive will be set to false automatically in Health setter
+            }
+        }
+    }
+    
+    private void HandlePlayerDeath()
+    {
+        if (gameManager != null)
+        {
+            gameManager.GameOver();
+        }
+    }
+    
+    // Method to set this as a player (can be called from inspector or code)
+    public void SetAsPlayer(HealthBarScript playerHealthBar = null)
+    {
+        isPlayer = true;
+        if (playerHealthBar != null)
+        {
+            healthBar = playerHealthBar;
+        }
+    }
 }

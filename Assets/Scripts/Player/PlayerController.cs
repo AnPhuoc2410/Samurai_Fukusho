@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(TouchingDirection), typeof(PlayerHealth))]
+//[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(TouchingDirection), typeof(Damageable))]
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     private TouchingDirection touchingDirection;
     private Damageable damageable;
-    private PlayerHealth playerHealth;
 
     // --- Defense Buff ---
     [Header("Defense Buff (Auto)")]
@@ -113,7 +112,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         touchingDirection = GetComponent<TouchingDirection>();
         damageable = GetComponent<Damageable>();
-        playerHealth = GetComponent<PlayerHealth>();
         audioSource = GetComponent<AudioSource>();
     }
     private void OnEnable()
@@ -192,30 +190,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Gọi khi bị enemy đánh
+    // Gọi khi bị enemy đánh - chỉ xử lý knockback, không trừ máu (đã được xử lý trong Damageable.Hit())
     public void OnHit(int damage, Vector2 knockback)
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
 
-        // --- Áp dụng giảm damage nếu có buff ---
-        int finalDamage = damage;
-        if (hasDefenseBuff)
-        {
-            if (defenseByPercent)
-            {
-                finalDamage = Mathf.CeilToInt(damage * (1f - Mathf.Clamp01(defenseValue / 100f)));
-            }
-            else
-            {
-                finalDamage = Mathf.Max(0, damage - Mathf.RoundToInt(defenseValue));
-            }
-        }
-
-        // Trừ máu
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(finalDamage);
-        }
+        // Note: Damage đã được xử lý trong Damageable.Hit() rồi, không cần trừ thêm ở đây
+        // Defense buff logic sẽ được xử lý trong Damageable.Hit() thay vì ở đây để tránh double damage
     }
     public void OnDeath()
     {
