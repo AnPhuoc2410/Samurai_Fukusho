@@ -433,6 +433,8 @@ MonoBehaviour:
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
+  isPlayer: 1
+  healthBar: {fileID: 0}
   timeSinceHit: 0
   invincibleTimer: 0.3
 --- !u!114 &2280566072029581220
