@@ -79,7 +79,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_SortingOrder: 10
   m_Sprite: {fileID: -1854440963, guid: 288218a319d290a45a1c84d1fd12bdac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,8 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a394f7bd166b24b9ab44ae4a315aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupSFX: {fileID: 0}
-  sfxVolume: 1
+  pickupSFX: {fileID: 8300000, guid: adb7e033518fbd04182da9a9e00c12c1, type: 3}
+  sfxVolume: 10
+  enableBuffDuration: 0
+  buffDuration: 10
   keyName: Level1Key
 --- !u!114 &7353034309153203727
 MonoBehaviour:

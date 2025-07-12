@@ -102,8 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50708479a3f4dcb47bb558aae94f9212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupSFX: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: c4716bf31f5d0a242b4ec70e5db2023a, type: 3}
   sfxVolume: 1
+  enableBuffDuration: 0
+  buffDuration: 5
   healthAmount: 40
 --- !u!114 &7175207386055201100
 MonoBehaviour:

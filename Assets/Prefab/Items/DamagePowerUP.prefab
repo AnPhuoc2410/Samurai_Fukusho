@@ -155,11 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906151738c6122a498fd2471862469ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupSFX: {fileID: 0}
-  sfxVolume: 1
+  pickupSFX: {fileID: 8300000, guid: 6148974f1a59dd54cb87c90e74c1edb2, type: 3}
+  sfxVolume: 5
   enableBuffDuration: 0
   buffDuration: 5
   increaseByPercent: 1
   increaseValue: 20
-  buffStartSFX: {fileID: 0}
   buffEndSFX: {fileID: 0}
+  itemName: Damage Boost
