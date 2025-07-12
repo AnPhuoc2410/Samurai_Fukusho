@@ -21,7 +21,7 @@ public class PauseMenuController : MonoBehaviour
 
         // Gán sự kiện cho các nút
         continueButton.onClick.AddListener(ResumeGame);
-        settingButton.onClick.AddListener(GoToMenu);
+        settingButton.onClick.AddListener(GoToMainMenu);
         exitButton.onClick.AddListener(ExitGame);
     }
 
@@ -51,9 +51,13 @@ public class PauseMenuController : MonoBehaviour
         isPaused = false;
     }
 
-    void GoToMenu()
+    public void GoToMainMenu()
     {
-        Time.timeScale = 1f; // Trả lại thời gian bình thường trước khi chuyển scene
+        // Lưu lại scene hiện tại để sau này quay lại
+        PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
+
+        Time.timeScale = 1f; // đảm bảo game không bị pause khi quay lại
         SceneManager.LoadScene("MainMenu");
     }
 
