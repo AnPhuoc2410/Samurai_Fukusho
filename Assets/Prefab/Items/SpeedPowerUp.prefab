@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f5be0b1803f7f4db2c32aeb54dfac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupSFX: {fileID: 0}
-  sfxVolume: 1
+  pickupSFX: {fileID: 8300000, guid: 9c6cc69f91f4f394aae9cf28d5feb5bd, type: 3}
+  sfxVolume: 5
   enableBuffDuration: 0
   buffDuration: 5
   increaseByPercent: 1

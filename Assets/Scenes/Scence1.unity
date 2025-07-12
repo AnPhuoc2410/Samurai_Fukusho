@@ -2939,6 +2939,10 @@ MonoBehaviour:
     quantity: 0
   - prefab: {fileID: 6311635651085736819, guid: f827b631e74d06e428e2380552206966, type: 3}
     quantity: 0
+  - prefab: {fileID: 2899307780774840384, guid: 844ae8a78c37eec4ea2c13de9cf5c9a2, type: 3}
+    quantity: 0
+  - prefab: {fileID: 2607162257105103112, guid: aced6dd557894c642a1de5ba083db400, type: 3}
+    quantity: 0
   useSpecificItemQuantities: 0
   minItemsPerChest: 1
   maxItemsPerChest: 3
