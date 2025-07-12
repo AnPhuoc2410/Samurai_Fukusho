@@ -325,7 +325,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 300, y: 75}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &154345137
 MonoBehaviour:
@@ -5343,7 +5343,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 336.1708, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &285742448
 MonoBehaviour:
@@ -8270,7 +8270,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 59.1736}
+  m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481986352
 MonoBehaviour:
@@ -9246,7 +9246,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 67.2978, y: 60}
+  m_SizeDelta: {x: 67.2978, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118585891
 MonoBehaviour:
@@ -9704,16 +9704,16 @@ SceneRoots:
   - {fileID: 1187266787}
   - {fileID: 837747739}
   - {fileID: 854632130}
-  - {fileID: 1303745595}
-  - {fileID: 708369131581797921}
   - {fileID: 8093595116985064139}
   - {fileID: 1949509191}
   - {fileID: 190964852}
-  - {fileID: 462041632}
-  - {fileID: 1183266517}
   - {fileID: 1130564813}
   - {fileID: 1800176266}
   - {fileID: 3268990423662888224}
   - {fileID: 1336607455}
   - {fileID: 5047284752565716128}
   - {fileID: 2052151469}
+  - {fileID: 708369131581797921}
+  - {fileID: 462041632}
+  - {fileID: 1183266517}
+  - {fileID: 1303745595}
