@@ -155,11 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106c7866a03cfe14cb5d632595c232b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupSFX: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: 918f669a88a961745b515f275e7a209e, type: 3}
   sfxVolume: 1
   enableBuffDuration: 0
   buffDuration: 5
   reduceByPercent: 1
   reduceValue: 50
-  buffStartSFX: {fileID: 0}
   buffEndSFX: {fileID: 0}
+  itemName: Armor Boost
