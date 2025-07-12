@@ -27,7 +27,11 @@ public class GameManager : MonoBehaviour
     public void Replay()
     {
         Time.timeScale = 1f; // khôi phục lại tốc độ game
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        isGameOver = false;
+
+        // Tải lại scene hiện tại
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     public void GoToMenu()
