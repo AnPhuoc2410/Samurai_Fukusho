@@ -15780,7 +15780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1976656001}
   m_Layer: 0
-  m_Name: ControlGuide_ButtonA
+  m_Name: ControlGuide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
