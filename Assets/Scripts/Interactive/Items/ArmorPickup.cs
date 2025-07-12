@@ -11,8 +11,6 @@ namespace InteractiveItems
         public bool reduceByPercent = true;
         [Tooltip("Giá trị giảm damage (phần trăm hoặc số lượng cố định)")]
         public float reduceValue = 20f;
-        [Tooltip("SFX khi bắt đầu buff giáp (tùy chọn)")]
-        public AudioClip buffStartSFX;
         [Tooltip("SFX khi kết thúc buff giáp (tùy chọn)")]
         public AudioClip buffEndSFX;
         
@@ -26,7 +24,7 @@ namespace InteractiveItems
             var pc = player.GetComponent<PlayerController>();
             if (pc != null)
             {
-                pc.ApplyDefenseBuff(reduceByPercent, reduceValue, 0f, buffStartSFX, buffEndSFX);
+                pc.ApplyDefenseBuff(reduceByPercent, reduceValue, 0f, null, buffEndSFX);
             }
             
             // Thêm vào inventory
@@ -49,7 +47,7 @@ namespace InteractiveItems
             var pc = player.GetComponent<PlayerController>();
             if (pc != null)
             {
-                pc.ApplyDefenseBuff(reduceByPercent, reduceValue, buffDuration, buffStartSFX, buffEndSFX);
+                pc.ApplyDefenseBuff(reduceByPercent, reduceValue, buffDuration, null, buffEndSFX);
             }
             
             // Thêm vào inventory
