@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip defenseBuffSFX;
     [Tooltip("SFX khi kết thúc buff giáp (tùy chọn)")]
     public AudioClip defenseBuffEndSFX;
-    private AudioSource audioSource;
 
     // --- Damage Buff ---
     [Header("Damage Buff (Auto)")]
@@ -43,6 +42,34 @@ public class PlayerController : MonoBehaviour
     public AudioClip damageBuffSFX;
     [Tooltip("SFX khi kết thúc buff damage (tùy chọn)")]
     public AudioClip damageBuffEndSFX;
+
+    // --- Speed Buff ---
+    [Header("Speed Buff (Auto)")]
+    [Tooltip("Tăng tốc độ di chuyển theo phần trăm hoặc số lượng cố định. Chỉ lấy giá trị lớn nhất nếu có nhiều buff.")]
+    public bool hasSpeedBuff = false;
+    [Tooltip("Nếu true, tăng tốc độ theo phần trăm. Nếu false, tăng tốc độ theo số lượng cố định.")]
+    public bool speedByPercent = true;
+    [Tooltip("Giá trị tăng tốc độ (phần trăm hoặc số lượng cố định)")]
+    public float speedBuffValue = 0f;
+    [Tooltip("SFX khi bắt đầu buff tốc độ (tùy chọn)")]
+    public AudioClip speedBuffSFX;
+    [Tooltip("SFX khi kết thúc buff tốc độ (tùy chọn)")]
+    public AudioClip speedBuffEndSFX;
+
+    // --- Jump Buff ---
+    [Header("Jump Buff (Auto)")]
+    [Tooltip("Tăng lực nhảy theo phần trăm hoặc số lượng cố định. Chỉ lấy giá trị lớn nhất nếu có nhiều buff.")]
+    public bool hasJumpBuff = false;
+    [Tooltip("Nếu true, tăng lực nhảy theo phần trăm. Nếu false, tăng lực nhảy theo số lượng cố định.")]
+    public bool jumpByPercent = true;
+    [Tooltip("Giá trị tăng lực nhảy (phần trăm hoặc số lượng cố định)")]
+    public float jumpBuffValue = 0f;
+    [Tooltip("SFX khi bắt đầu buff nhảy (tùy chọn)")]
+    public AudioClip jumpBuffSFX;
+    [Tooltip("SFX khi kết thúc buff nhảy (tùy chọn)")]
+    public AudioClip jumpBuffEndSFX;
+
+    private AudioSource audioSource;
 
     private Vector2 moveInput;
     private bool isFacingRight = true;
@@ -62,10 +89,10 @@ public class PlayerController : MonoBehaviour
                 {
                     if (!touchingDirection.IsGrounded)
                     {
-                        return airWalkSpeed;
+                        return GetModifiedSpeed(airWalkSpeed);
                     }
 
-                    return isRunning ? runSpeed : walkSpeed;
+                    return isRunning ? GetModifiedSpeed(runSpeed) : GetModifiedSpeed(walkSpeed);
                 }
             }
 
@@ -153,7 +180,7 @@ public class PlayerController : MonoBehaviour
         if (context.started && touchingDirection.IsGrounded && CanMove)
         {
             animator.SetTrigger(AnimationStrings.jumpTrigger);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * GetModifiedJumpForce(), ForceMode2D.Impulse);
         }
     }
 
@@ -252,6 +279,62 @@ public class PlayerController : MonoBehaviour
         RemoveDamageBuff(endSFX);
     }
 
+    // --- API cho SpeedPickup gọi ---
+    public void ApplySpeedBuff(bool byPercent, float value, float duration = 0f, AudioClip startSFX = null, AudioClip endSFX = null)
+    {
+        // Nếu đã có buff, chỉ lấy giá trị lớn nhất
+        if (!hasSpeedBuff || value > speedBuffValue)
+        {
+            hasSpeedBuff = true;
+            speedByPercent = byPercent;
+            speedBuffValue = value;
+            if (startSFX != null && audioSource != null)
+                audioSource.PlayOneShot(startSFX);
+            if (duration > 0f)
+                StartCoroutine(RemoveSpeedBuffAfter(duration, endSFX));
+        }
+    }
+    public void RemoveSpeedBuff(AudioClip endSFX = null)
+    {
+        hasSpeedBuff = false;
+        speedBuffValue = 0f;
+        if (endSFX != null && audioSource != null)
+            audioSource.PlayOneShot(endSFX);
+    }
+    private System.Collections.IEnumerator RemoveSpeedBuffAfter(float duration, AudioClip endSFX)
+    {
+        yield return new WaitForSeconds(duration);
+        RemoveSpeedBuff(endSFX);
+    }
+
+    // --- API cho JumpPickup gọi ---
+    public void ApplyJumpBuff(bool byPercent, float value, float duration = 0f, AudioClip startSFX = null, AudioClip endSFX = null)
+    {
+        // Nếu đã có buff, chỉ lấy giá trị lớn nhất
+        if (!hasJumpBuff || value > jumpBuffValue)
+        {
+            hasJumpBuff = true;
+            jumpByPercent = byPercent;
+            jumpBuffValue = value;
+            if (startSFX != null && audioSource != null)
+                audioSource.PlayOneShot(startSFX);
+            if (duration > 0f)
+                StartCoroutine(RemoveJumpBuffAfter(duration, endSFX));
+        }
+    }
+    public void RemoveJumpBuff(AudioClip endSFX = null)
+    {
+        hasJumpBuff = false;
+        jumpBuffValue = 0f;
+        if (endSFX != null && audioSource != null)
+            audioSource.PlayOneShot(endSFX);
+    }
+    private System.Collections.IEnumerator RemoveJumpBuffAfter(float duration, AudioClip endSFX)
+    {
+        yield return new WaitForSeconds(duration);
+        RemoveJumpBuff(endSFX);
+    }
+
     // --- Hook vào chỗ tính damage khi player tấn công ---
     public int GetModifiedDamage(int baseDamage)
     {
@@ -263,6 +346,32 @@ public class PlayerController : MonoBehaviour
                 return baseDamage + Mathf.RoundToInt(damageBuffValue);
         }
         return baseDamage;
+    }
+
+    // --- Hook vào chỗ tính speed ---
+    private float GetModifiedSpeed(float baseSpeed)
+    {
+        if (hasSpeedBuff)
+        {
+            if (speedByPercent)
+                return baseSpeed * (1f + Mathf.Clamp01(speedBuffValue / 100f));
+            else
+                return baseSpeed + speedBuffValue;
+        }
+        return baseSpeed;
+    }
+
+    // --- Hook vào chỗ tính jump force ---
+    private float GetModifiedJumpForce()
+    {
+        if (hasJumpBuff)
+        {
+            if (jumpByPercent)
+                return jumpForce * (1f + Mathf.Clamp01(jumpBuffValue / 100f));
+            else
+                return jumpForce + jumpBuffValue;
+        }
+        return jumpForce;
     }
 
     /// <summary>
