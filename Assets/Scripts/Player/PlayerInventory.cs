@@ -5,16 +5,16 @@ using UnityEngine.Events;
 public class PlayerInventory : MonoBehaviour
 {
     private static PlayerInventory instance;
-    public static PlayerInventory Instance 
-    { 
-        get 
-        { 
+    public static PlayerInventory Instance
+    {
+        get
+        {
             if (instance == null)
             {
                 instance = FindFirstObjectByType<PlayerInventory>();
             }
-            return instance; 
-        } 
+            return instance;
+        }
     }
 
     [SerializeField] private List<InventoryItem> items = new List<InventoryItem>();
@@ -28,8 +28,8 @@ public class PlayerInventory : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
-            Debug.Log("PlayerInventory singleton created and marked as DontDestroyOnLoad");
+            // Không dùng DontDestroyOnLoad nữa
+            Debug.Log("PlayerInventory singleton created");
         }
         else if (instance != this)
         {
@@ -134,4 +134,14 @@ public class PlayerInventory : MonoBehaviour
     {
         return items;
     }
-} 
+
+    /// <summary>
+    /// Reset the player's inventory
+    /// </summary>
+    public void ResetInventory()
+    {
+        items.Clear();
+        OnInventoryChanged?.Invoke();
+        Debug.Log("PlayerInventory has been reset");
+    }
+}

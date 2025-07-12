@@ -7,15 +7,15 @@ public class LevelGate : PressE_ToOpen
     [SerializeField] private string requiredKeyName = "Level1Key"; // Key needed to open this gate
     [SerializeField] private string targetSceneName = "Scence2"; // Scene to load when gate opens
     [SerializeField] private bool consumeKey = false; // Whether to remove key from inventory after use
-    
+
     [Header("Player Spawn Settings")]
     [SerializeField] private Vector3 playerSpawnPosition = Vector3.zero; // Position to spawn player in target scene
     [SerializeField] private bool useCustomSpawnPosition = false; // Whether to use custom spawn position
-    
+
     [Header("Audio")]
     [SerializeField] private AudioClip lockedSound; // Sound when trying to open without key
     [SerializeField] private AudioClip unlockSound; // Sound when successfully opening gate
-    
+
     private AudioSource audioSource;
     private SpriteRenderer spriteRenderer;
     private bool hasRequiredKey = false;
@@ -23,11 +23,11 @@ public class LevelGate : PressE_ToOpen
     protected override void Start()
     {
         base.Start();
-        
+
         // Get components
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+
         // Check for key initially
         CheckForKey();
     }
@@ -60,7 +60,7 @@ public class LevelGate : PressE_ToOpen
     {
         PlayerInventory inventory = PlayerInventory.Instance;
         hasRequiredKey = inventory != null && inventory.HasKey(requiredKeyName);
-        
+
         if (inventory == null)
         {
             Debug.LogWarning("PlayerInventory instance not found when checking for key!");
@@ -109,7 +109,7 @@ public class LevelGate : PressE_ToOpen
 
         // Show message to player
         Debug.Log($"Gate is locked! You need the {requiredKeyName} to open this gate.");
-        
+
         // You can add UI message display here
         // For example: UIManager.ShowMessage($"You need the {requiredKeyName}!");
     }
@@ -119,16 +119,7 @@ public class LevelGate : PressE_ToOpen
         if (!string.IsNullOrEmpty(targetSceneName))
         {
             Debug.Log($"Loading scene: {targetSceneName}");
-            
-            // Use SceneTransitionManager for proper scene transition with spawn position
-            if (useCustomSpawnPosition)
-            {
-                SceneTransitionManager.Instance.TransitionToScene(targetSceneName, playerSpawnPosition, true);
-            }
-            else
-            {
-                SceneTransitionManager.Instance.TransitionToScene(targetSceneName);
-            }
+            SceneManager.LoadScene(targetSceneName);
         }
         else
         {
@@ -182,4 +173,4 @@ public class LevelGate : PressE_ToOpen
         float distance = Vector2.Distance(player.transform.position, transform.position);
         return distance <= interactRange;
     }
-} 
+}
