@@ -34,10 +34,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    public void GoToMenu()
+    public void GoToMainMenu()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu"); // nhớ thêm scene "MainMenu" vào Build Settings
+        // Lưu lại scene hiện tại để Continue
+        PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
+
+        Time.timeScale = 1f; // đảm bảo không bị pause
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
