@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Cinemachine;
+using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
-/// Manages scene transitions and player spawning across scenes
+/// Manages scene transitions, player spawning, and health bar persistence across scenes
 /// </summary>
 public class SceneTransitionManager : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class SceneTransitionManager : MonoBehaviour
     private bool useCustomSpawnPosition = false;
     private string targetSceneName = "";
 
+    [Header("Health Bar Management")]
+    public GameObject healthBarPrefab;
+    private HealthBarScript currentHealthBar;
+    private Canvas targetCanvas;
+
     private void Awake()
     {
         if (instance == null)
@@ -39,6 +45,13 @@ public class SceneTransitionManager : MonoBehaviour
         else if (instance != this)
         {
             Destroy(gameObject);
+            return;
+        }
+
+        // Load the health bar prefab if not assigned
+        if (healthBarPrefab == null)
+        {
+            healthBarPrefab = Resources.Load<GameObject>("Prefab/Text/HealhBarUI");
         }
     }
 
@@ -70,6 +83,9 @@ public class SceneTransitionManager : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
+        // Reset health bar references for scene change
+        OnSceneChanged();
+
         // Load the scene asynchronously
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         
@@ -132,6 +148,9 @@ public class SceneTransitionManager : MonoBehaviour
 
             // Ensure player has proper physics setup
             SetupPlayerPhysics(player);
+            
+            // Setup Health Bar connection
+            SetupPlayerHealthBar(player);
             
             // Ensure player tag is set correctly
             if (!player.CompareTag("Player"))
@@ -213,6 +232,22 @@ public class SceneTransitionManager : MonoBehaviour
         {
             Debug.Log("PlayerInventory component found on player");
         }
+    }
+
+    /// <summary>
+    /// Setup the health bar connection for the player
+    /// </summary>
+    private void SetupPlayerHealthBar(GameObject player)
+    {
+        Damageable playerDamageable = player.GetComponent<Damageable>();
+        if (playerDamageable == null)
+        {
+            Debug.LogError("Player does not have Damageable component!");
+            return;
+        }
+
+        // Connect health bar to player using integrated system
+        ConnectHealthBarToPlayer(playerDamageable);
     }
 
     private void SetupCamera()
@@ -348,4 +383,54 @@ public class SceneTransitionManager : MonoBehaviour
     {
         return useCustomSpawnPosition;
     }
+
+    /// <summary>
+    /// Get or create the health bar UI for the current scene
+    /// </summary>
+    public HealthBarScript GetHealthBar()
+    {
+        // Check if current health bar is still valid
+        if (currentHealthBar != null && currentHealthBar.gameObject != null)
+        {
+            return currentHealthBar;
+        }
+
+        // Find existing health bar in scene
+        currentHealthBar = FindFirstObjectByType<HealthBarScript>();
+
+        return currentHealthBar;
+    }
+
+    /// <summary>
+    /// Connect the health bar to a player
+    /// </summary>
+    public void ConnectHealthBarToPlayer(Damageable playerDamageable)
+    {
+        HealthBarScript healthBar = GetHealthBar();
+        
+        if (healthBar != null && playerDamageable != null)
+        {
+            playerDamageable.SetAsPlayer(healthBar);
+            
+            // Initialize the health bar display
+            healthBar.UpdateBar(playerDamageable.Health, playerDamageable.MaxHealth);
+            
+            Debug.Log("Health bar connected to player successfully");
+        }
+        else
+        {
+            Debug.LogError("Failed to connect health bar to player");
+        }
+    }
+
+    /// <summary>
+    /// Cleanup when scene changes
+    /// </summary>
+    public void OnSceneChanged()
+    {
+        // Reset references since UI might be destroyed with scene change
+        currentHealthBar = null;
+        targetCanvas = null;
+    }
+
 }
