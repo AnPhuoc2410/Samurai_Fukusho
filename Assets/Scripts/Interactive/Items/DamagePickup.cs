@@ -11,8 +11,6 @@ namespace InteractiveItems
         public bool increaseByPercent = true;
         [Tooltip("Giá trị tăng damage (phần trăm hoặc số lượng cố định)")]
         public float increaseValue = 20f;
-        [Tooltip("SFX khi bắt đầu buff damage (tùy chọn)")]
-        public AudioClip buffStartSFX;
         [Tooltip("SFX khi kết thúc buff damage (tùy chọn)")]
         public AudioClip buffEndSFX;
         
@@ -26,7 +24,7 @@ namespace InteractiveItems
             var pc = player.GetComponent<PlayerController>();
             if (pc != null)
             {
-                pc.ApplyDamageBuff(increaseByPercent, increaseValue, 0f, buffStartSFX, buffEndSFX);
+                pc.ApplyDamageBuff(increaseByPercent, increaseValue, 0f, null, buffEndSFX);
             }
             
             // Thêm vào inventory
@@ -49,7 +47,7 @@ namespace InteractiveItems
             var pc = player.GetComponent<PlayerController>();
             if (pc != null)
             {
-                pc.ApplyDamageBuff(increaseByPercent, increaseValue, buffDuration, buffStartSFX, buffEndSFX);
+                pc.ApplyDamageBuff(increaseByPercent, increaseValue, buffDuration, null, buffEndSFX);
             }
             
             // Thêm vào inventory
