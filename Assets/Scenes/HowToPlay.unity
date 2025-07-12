@@ -253,8 +253,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back  to Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 650f415b9e8476e4d82609ea1d379587, type: 2}
-  m_sharedMaterial: {fileID: 2824038981898629745, guid: 650f415b9e8476e4d82609ea1d379587, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
+  m_sharedMaterial: {fileID: 3191034413503752738, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -389,8 +389,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Star  Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 650f415b9e8476e4d82609ea1d379587, type: 2}
-  m_sharedMaterial: {fileID: 2824038981898629745, guid: 650f415b9e8476e4d82609ea1d379587, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
+  m_sharedMaterial: {fileID: 3191034413503752738, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -523,17 +523,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'W, A, S, D: move.
+  m_text: 'A, D: move.
 
-    J: attack, K: block.
+    J: attack.
 
     Space: jump.
+
+    Left Shift: Sprint
 
     E:
     interact with items or doors.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
+  m_sharedMaterial: {fileID: 3191034413503752738, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -839,8 +841,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How to play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 650f415b9e8476e4d82609ea1d379587, type: 2}
-  m_sharedMaterial: {fileID: 2824038981898629745, guid: 650f415b9e8476e4d82609ea1d379587, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
+  m_sharedMaterial: {fileID: 3191034413503752738, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

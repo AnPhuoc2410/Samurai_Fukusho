@@ -12,12 +12,19 @@ public class Witch : MonoBehaviour
     public float attackCooldown = 2f;
     private float lastAttackTime = 0f;
 
+    [Header("Key Drop Settings")]
+    [Tooltip("Key prefab sẽ được drop khi Witch chết")]
+    public GameObject keyPrefab;
+    [Tooltip("Offset vị trí drop key so với vị trí Witch")]
+    public Vector2 keyDropOffset = new Vector2(0, 0.5f);
+
     Animator animator;
     Rigidbody2D rb;
     Damageable damageable;
     Transform nextWaypoint;
     int waypointNum = 0;
     public bool _hasTarget = false;
+    private bool hasDroppedKey = false; // Để đảm bảo chỉ drop key một lần
 
     public bool HasTarget
     {
@@ -203,6 +210,16 @@ public class Witch : MonoBehaviour
         CanMove = false;
         rb.gravityScale = 2f;
         rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        
+        // Drop key khi Witch chết
+        if (!hasDroppedKey && keyPrefab != null)
+        {
+            Vector3 dropPosition = transform.position + (Vector3)keyDropOffset;
+            GameObject droppedKey = Instantiate(keyPrefab, dropPosition, Quaternion.identity);
+            hasDroppedKey = true;
+            
+            Debug.Log("Witch đã drop key tại vị trí: " + dropPosition);
+        }
     }
 
     public float knockbackRecoveryTime = 0.5f;  // Time before witch can move again after being hit
