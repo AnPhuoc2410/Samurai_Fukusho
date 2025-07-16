@@ -788,29 +788,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Title: \"Narrative\"\n    Content:\n        - \"\"The chains are broken...\"\"\n       
-    - \"\"But the questions remain.\"\"\n        - \"He walks not just out of a prison,
-    but out of his former self.\"\n        - \"The knight once known by honor, now
-    fueled by betrayal.\"\n        - \"Every flicker of torchlight a reminder\u2026\"\n       
-    - \"Every scream behind stone walls an echo of his past.\"\n        - \"He fought
-    not for glory.\"\n        - \"Not for kings.\"\n        - \"Not for justice.\"\n       
-    - \"But for answers.\"\n        - \"And now\u2014only silence remains.\"\n       
-    - \"Was freedom ever the goal?\"\n        - \"Or was it vengeance?\"\n       
-    - \"Or perhaps\u2026 something darker still?\"\n- Title: \"Team Members\"\n    
-    Members:\n        - \"Nguy\u1EC5n Ng\u1ECDc Khi\xEAm \u2013 Worldbuilding, Character
-    Lore\"\n        - \"L\xEA Ng\u1ECDc Ph\u01B0\u1EDBc \u2013 Level Design, Gameplay
-    Logic\"\n        - \"Nguy\u1EC5n H\u1EEFu D\u01B0\u1EE1ng \u2013 Enemy AI, Visual
-    Effects\"\n        - \"Nguy\u1EC5n Ho\xE0ng Mai Anh \u2013 UI/UX, Design\"\n-
-    Title: \"Assets Used\"\n     Sources:\n        - \"Samurai 2D Pixel Art by Mattz
-    Art (xzany.itch.io)\"\n        - \"Free Pixel Art Asset Pack \u2013 Sidescroller
-    by Anokolisa (anokolisa.itch.io)\"\n        - \"Undead Survivor Assets Pack by
-    Goldmetal (assetstore.unity.com)\"\n- Title: \"Tools & Tech\"\n     Tools:\n       
-    - \"Unity Engine\"\n        - \"TextMeshPro\"\n        - \"Cinemachine\"\n       
-    - \"Aseprite / Piskel\"\n        - \"GitHub (Version Control)\"\n- Title: \"Epilogue\"\n    
-    Content:\n        - \"\"He may have escaped the dungeon...\"\"\n        - \"\"...but
-    can one truly escape the past?\"\"\n        - \"Knight Fukusho will return...\"\n       
-    - \"Press Any Key to Exit\"\n**You have seen only the beginning.**  \nThe truth
-    lies not in freedom...  \nBut in what you become after it"
+  m_text: "        - The chains are broken...\r\n        - But the questions remain.\r\n       
+    - He walks not just out of a prison, but out of his former self.\r\n        -
+    The knight once known by honor, now fueled by betrayal.\r\n        - Every flicker
+    of torchlight a reminder\u2026\r\n        - Every scream behind stone walls an
+    echo of his past.\r\n        - He fought not for glory.\r\n        - Not for
+    kings.\r\n        - Not for justice.\r\n        - But for answers.\r\n       
+    - And now\u2014only silence remains.\r\n        - Was freedom ever the goal?\r\n       
+    - Or was it vengeance?\r\n        - Or perhaps\u2026 something darker still?\r\n    
+    Members:\r\n        - \"Nguy\u1EC5n V\u0103n Duy Khi\xEAm \u2013 Worldbuilding,
+    Character Lore\"\r\n        - \"\u0110\xE0o C\xF4ng An Ph\u01B0\u1EDBc \u2013
+    Level Design, Gameplay Logic\"\r\n        - \"Nguy\u1EC5n M\u1EA1nh D\u01B0\u1EE1ng
+    \u2013 Enemy AI, Visual Effects\"\r\n        - \"Nguy\u1EC5n Ho\xE0ng Mai Anh
+    \u2013 UI/UX, Design\"\r\n     Sources:\r\n        - \"Samurai 2D Pixel Art by
+    Mattz Art (xzany.itch.io)\"\r\n        - \"UI User Interface MEGA PACK by ToffeeCraft\"\r\n       
+    - \"An Rpg Makers Kit 1 - Free Rpg Sounds/Music by TheAmbientFort\"\r\n     Tools:\r\n       
+    - \"Unity Engine\"\r\n        - \"TextMeshPro\"\r\n        - \"Cinemachine\"\r\n       
+    - \"Aseprite / Piskel\"\r\n        - \"GitHub (Version Control)\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
   m_sharedMaterial: {fileID: 3191034413503752738, guid: c53e14a9b8e4b3c4daae3e3fd50a7b22, type: 2}
