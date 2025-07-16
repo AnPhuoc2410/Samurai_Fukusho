@@ -12436,7 +12436,7 @@ Transform:
   m_GameObject: {fileID: 942884192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.21, y: -5.6, z: -10.116089}
+  m_LocalPosition: {x: 21.32, y: -5.54, z: -10.116089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13265,7 +13265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2717474754607951965, guid: b37a9ef5be2c40749b10ab252947196b, type: 3}
       propertyPath: _maxHealth
-      value: 500
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -2717474754607951965, guid: b37a9ef5be2c40749b10ab252947196b, type: 3}
       propertyPath: isInvincible
@@ -14792,11 +14792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7797637335284552775, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.21
+      value: 21.32
       objectReference: {fileID: 0}
     - target: {fileID: 7797637335284552775, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.6
+      value: -5.54
       objectReference: {fileID: 0}
     - target: {fileID: 7797637335284552775, guid: 3cc61b8e0472e554ab8525a307c336ec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15979,7 +15979,7 @@ Transform:
   m_GameObject: {fileID: 1593553116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.21, y: -5.6, z: -10.116089}
+  m_LocalPosition: {x: 21.32, y: -5.54, z: -10.116089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
