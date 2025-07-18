@@ -2909,71 +2909,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828176509}
   m_CullTransparentMesh: 1
---- !u!1 &832107764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 832107766}
-  - component: {fileID: 832107767}
-  m_Layer: 0
-  m_Name: ChestManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &832107766
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832107764}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.092295, y: -2.4858375, z: 0.018487895}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &832107767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832107764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c5e80292aadee4db352dc0ef7de0b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPool:
-  - prefab: {fileID: 7109342292166119107, guid: 2c720d3477bf1f6409a70437a4e9ad5b, type: 3}
-    quantity: 0
-  - prefab: {fileID: 7109342292166119107, guid: aafa8720d62f65e479c3420bf7c90aab, type: 3}
-    quantity: 0
-  - prefab: {fileID: 7109342292166119107, guid: 05d64bacb5cc9404b8b7ab72db1a733c, type: 3}
-    quantity: 0
-  - prefab: {fileID: 1585888668328475755, guid: 8be1a4c9e24366341a567f3a2b5c0421, type: 3}
-    quantity: 0
-  - prefab: {fileID: 6311635651085736819, guid: f827b631e74d06e428e2380552206966, type: 3}
-    quantity: 0
-  - prefab: {fileID: 2899307780774840384, guid: 844ae8a78c37eec4ea2c13de9cf5c9a2, type: 3}
-    quantity: 0
-  - prefab: {fileID: 2607162257105103112, guid: aced6dd557894c642a1de5ba083db400, type: 3}
-    quantity: 0
-  useSpecificItemQuantities: 0
-  minItemsPerChest: 1
-  maxItemsPerChest: 3
-  enableAutoDestroy: 1
-  autoDestroyTime: 5
-  keyPrefab: {fileID: 1143292623}
 --- !u!1 &856648099
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,7 +3995,7 @@ GameObject:
   - component: {fileID: 1150980078}
   - component: {fileID: 1150980077}
   m_Layer: 0
-  m_Name: ChestManager (1)
+  m_Name: ChestManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16036,7 +15971,6 @@ SceneRoots:
   - {fileID: 1343969254}
   - {fileID: 1967243567}
   - {fileID: 2077613821}
-  - {fileID: 832107766}
   - {fileID: 658020211}
   - {fileID: 2059402609}
   - {fileID: 709330564}
