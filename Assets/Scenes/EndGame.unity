@@ -671,7 +671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creditText: {fileID: 493825716}
   scrollSpeed: 100
-  endYPosition: 1750
+  endYPosition: 2000
   finalText: {fileID: 298455913}
   backToMenuButton: {fileID: 1844414802}
 --- !u!1 &980484414

@@ -221,6 +221,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 740086026381350725, guid: b26ec57205e2e0c41b04a8bc53dab61b, type: 3}
   m_PrefabInstance: {fileID: 54443344}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &60493158
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3216999018433696690, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_Name
+      value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779340579303156586, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42ad59294b17f624dad1cec8a5c44340, type: 3}
 --- !u!1001 &70311139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13759,6 +13816,7 @@ GameObject:
   - component: {fileID: 1343969254}
   - component: {fileID: 1343969253}
   - component: {fileID: 1343969252}
+  - component: {fileID: 1343969255}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -13827,6 +13885,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1343969255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343969251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba2da6cfdf4bad48ba5c4a94984703a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputWindow: 3
+  speedBuffValue: 50
+  damageBuffValue: 100
+  defenseBuffValue: 50
+  jumpBuffValue: 50
+  buffDuration: 30
+  speedBoostSprite: {fileID: 1885796447, guid: 288218a319d290a45a1c84d1fd12bdac, type: 3}
+  damageBoostSprite: {fileID: -557147597, guid: 288218a319d290a45a1c84d1fd12bdac, type: 3}
+  armorBoostSprite: {fileID: -443582490, guid: 288218a319d290a45a1c84d1fd12bdac, type: 3}
+  jumpBoostSprite: {fileID: -296620749, guid: 288218a319d290a45a1c84d1fd12bdac, type: 3}
+  cheatActivatedSFX: {fileID: 8300000, guid: 6148974f1a59dd54cb87c90e74c1edb2, type: 3}
 --- !u!1 &1368598523
 GameObject:
   m_ObjectHideFlags: 0
@@ -15944,6 +16025,7 @@ SceneRoots:
   - {fileID: 342725287}
   - {fileID: 1876045893}
   - {fileID: 680376959}
+  - {fileID: 60493158}
   - {fileID: 1976656001}
   - {fileID: 3452189838853961224}
   - {fileID: 1584144661}

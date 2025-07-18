@@ -27,4 +27,14 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("HowToPlay");
     }
+    public void ExitGame()
+    {
+        Debug.Log("Exiting game...");
+        Application.Quit();
+        
+        // Nếu đang chạy trong Unity Editor, dừng play mode
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
 }

@@ -277,8 +277,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280164996
-  m_fontColor: {r: 0.5169811, g: 0.13234162, b: 0.116076834, a: 1}
+    rgba: 4278239681
+  m_fontColor: {r: 0.7584905, g: 0.7549137, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -822,7 +822,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 819832085}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966045565}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &819832085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,7 +930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 69182563bba11ae4b8e68dd18983fa7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33e0d64acd10eb148b7f80eb5af7187d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
