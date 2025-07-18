@@ -1,32 +1,68 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CreditsScroll : MonoBehaviour
 {
+    public RectTransform creditText;     // Gán object chứa text cuộn
     public float scrollSpeed = 100f;
-    public float endYPosition = 1200f; // Tuỳ chiều cao mà text đi hết màn
-    public GameObject finalText; // Dòng cuối giữ lại
+    public float endYPosition = 1500f;
 
-    private RectTransform rectTransform;
+
+    public GameObject finalText;
+    public GameObject backToMenuButton;
+
     private bool finished = false;
 
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
-        finalText.SetActive(false); // Ẩn dòng cuối lúc đầu
+        if (creditText == null)
+        {
+            Debug.LogError("⚠️ Chưa gán CreditText trong Inspector!");
+            return;
+        }
+
+        if (finalText != null)
+            finalText.SetActive(false);
+
+        if (backToMenuButton != null)
+        {
+            backToMenuButton.SetActive(false);
+            backToMenuButton.GetComponent<Button>().onClick.AddListener(BackToMenu);
+        }
     }
 
     void Update()
     {
-        if (!finished)
+        if (!finished && creditText != null)
         {
-            rectTransform.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
+            creditText.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
 
-            if (rectTransform.anchoredPosition.y >= endYPosition)
+            // Debug vị trí Y hiện tại
+            Debug.Log("📍 Y Position: " + creditText.anchoredPosition.y);
+
+            // Khi cuộn vượt qua vị trí Y kết thúc
+            if (creditText.anchoredPosition.y >= endYPosition)
             {
+                Debug.Log("✅ Đã đến cuối credits, hiển thị finalText và button!");
                 finished = true;
-                finalText.SetActive(true); // Hiện dòng cuối
+                ShowFinalTextAndButton(); // gọi trực tiếp, không chờ 2 giây
             }
         }
+    }
+
+    void ShowFinalTextAndButton()
+    {
+        if (finalText != null)
+            finalText.SetActive(true);
+
+        if (backToMenuButton != null)
+            backToMenuButton.SetActive(true);
+    }
+
+    void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu"); // Đặt đúng tên Scene Menu chính của bạn
     }
 }
