@@ -21,6 +21,7 @@ With each enemy slain and each new area discovered, fragments of the truth begin
 * **K**: Raise your guard against the onslaught of enemies
 * **Space**: Leap across chasms and deadly traps
 * **E**: Interact with ancient mechanisms, mysterious artifacts, and sealed doors
+* Type **ILOVEYOU** on your **keyboard** to active Cheat Code which give you all Items Buff
 
 ### ⚙️ Gameplay Mechanics
 
